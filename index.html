@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah Raad | AI Systems Architect & Full Stack Developer</title>
+    <meta name="description" content="Portfolio of Abdullah Raad: AI Systems Architect, Full Stack Developer, and English Trainer in Baghdad, Iraq. Built with Lovable and Cursor.">
+    <meta name="keywords" content="Abdullah Raad, AI Systems Architect, Full Stack Developer, Lovable, Cursor, NLP, Iraqi Dialect AI, SaaS Portfolio">
+    <meta name="author" content="Abdullah Raad">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Abdullah Raad | AI Systems Architect & Full Stack Developer">
+    <meta property="og:description" content="Portfolio of Abdullah Raad: AI Systems Architect, Full Stack Developer, and English Trainer in Baghdad, Iraq.">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Abdullah Raad | AI Systems Architect & Full Stack Developer">
+    <meta property="twitter:description" content="Portfolio of Abdullah Raad: AI Systems Architect, Full Stack Developer, and English Trainer in Baghdad, Iraq.">
+    
+    <!-- Inter Font from Google Fonts for Premium SaaS Vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: '#09090b', // zinc-950
+                        surface: '#18181b', // zinc-900
+                        border: '#27272a', // zinc-800
+                        muted: '#a1a1aa', // zinc-400
+                        foreground: '#fafafa', // zinc-50
+                        accent: '#38bdf8', // sky-400
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+        /* Language Toggle Logic */
+        html[lang="en"] .lang-ar { display: none !important; }
+        html[lang="ar"] .lang-en { display: none !important; }
+        html[lang="ar"] { direction: rtl; }
+        html[lang="ar"] body { font-family: system-ui, -apple-system, sans-serif; }
+
+        /* Antigravity Animation (Subtle Y-axis translation) */
+        @keyframes antigravity {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        
+        .animate-antigravity {
+            animation: antigravity 5s ease-in-out infinite;
+            will-change: transform;
+        }
+        
+        /* Pause animations on hover */
+        .group:hover {
+            animation-play-state: paused !important;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass {
+            background: rgba(9, 9, 11, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(39, 39, 42, 0.5);
+        }
+        .glass-input {
+            background: rgba(24, 24, 27, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(39, 39, 42, 0.8);
+            color: #fafafa;
+            transition: all 0.2s ease;
+        }
+        .glass-input:focus {
+            outline: none;
+            border-color: #38bdf8;
+            background: rgba(24, 24, 27, 0.7);
+            box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground antialiased selection:bg-accent selection:text-background">
+
+    <!-- Sticky Glass Navigation -->
+    <nav class="fixed w-full z-50 top-0 glass transition-all border-b border-border">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="font-bold text-xl tracking-tighter hover:text-accent transition-colors">
+                <span class="lang-en">AR.</span>
+                <span class="lang-ar">ع.ر.</span>
+            </a>
+            
+            <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-muted">
+                <a href="#about" class="hover:text-foreground transition-colors">
+                    <span class="lang-en">Executive Summary</span>
+                    <span class="lang-ar">الملخص التنفيذي</span>
+                </a>
+                <a href="#projects" class="hover:text-foreground transition-colors">
+                    <span class="lang-en">Projects</span>
+                    <span class="lang-ar">المشاريع</span>
+                </a>
+                <a href="#skills" class="hover:text-foreground transition-colors">
+                    <span class="lang-en">Expertise</span>
+                    <span class="lang-ar">الخبرات</span>
+                </a>
+                <a href="#linguistics" class="hover:text-foreground transition-colors">
+                    <span class="lang-en">Linguistics</span>
+                    <span class="lang-ar">اللغويات</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <!-- Language Toggle -->
+                <button onclick="toggleLanguage()" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-border bg-surface hover:bg-border transition-colors">
+                    <span class="lang-en">عربي</span>
+                    <span class="lang-ar">EN</span>
+                </button>
+
+                <a href="#contact" class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-full bg-foreground text-background hover:bg-zinc-200 transition-colors">
+                    <span class="lang-en">Contact Me</span>
+                    <span class="lang-ar">تواصل معي</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-32 pb-24 space-y-32">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="relative pt-24 pb-16 flex flex-col items-center justify-center text-center min-h-[75vh] overflow-hidden rounded-3xl border border-border bg-surface/30 mt-8 px-8 md:px-16 group">
+            
+            <!-- Abstract Glowing Nodes & Geometric Lines -->
+            <div class="absolute inset-0 z-0 opacity-40 animate-antigravity pointer-events-none">
+                <div class="absolute top-10 left-1/4 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl mix-blend-screen"></div>
+                <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl mix-blend-screen"></div>
+                <!-- SVG Geometric Network -->
+                <svg class="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="10%" y1="20%" x2="40%" y2="50%" stroke="#38bdf8" stroke-width="0.5" stroke-dasharray="4" />
+                    <line x1="40%" y1="50%" x2="80%" y2="30%" stroke="#38bdf8" stroke-width="0.5" stroke-dasharray="4" />
+                    <line x1="80%" y1="30%" x2="90%" y2="80%" stroke="#38bdf8" stroke-width="0.5" stroke-dasharray="4" />
+                    <circle cx="10%" cy="20%" r="2" fill="#38bdf8" />
+                    <circle cx="40%" cy="50%" r="3" fill="#38bdf8" class="animate-pulse" />
+                    <circle cx="80%" cy="30%" r="2" fill="#38bdf8" />
+                    <circle cx="90%" cy="80%" r="3" fill="#38bdf8" class="animate-pulse" />
+                </svg>
+            </div>
+
+            <!-- Deep Background Blur Overlay -->
+            <div class="absolute inset-0 z-0 bg-background/60 backdrop-blur-[4px] pointer-events-none"></div>
+
+            <!-- Hero Content -->
+            <div class="relative z-10 w-full flex flex-col items-center animate-antigravity">
+                <div class="inline-flex items-center gap-2 rounded-full border border-border/50 px-4 py-1.5 text-xs font-semibold text-muted mb-10 glass shadow-lg">
+                    <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="lang-en">Baghdad, Iraq | Open to Remote Worldwide</span>
+                    <span class="lang-ar">بغداد، العراق | متاح للعمل عن بُعد عالمياً</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-8xl font-bold tracking-tight mb-8 leading-tight max-w-5xl drop-shadow-md mx-auto">
+                    <span class="text-foreground">
+                        <span class="lang-en">Abdullah Raad.</span>
+                        <span class="lang-ar">عبدالله رعد.</span>
+                    </span><br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-500 text-3xl md:text-5xl mt-4 block">
+                        <span class="lang-en">AI Systems Architect & Full Stack Developer.</span>
+                        <span class="lang-ar">مهندس نظم ذكاء اصطناعي ومطور شامل.</span>
+                    </span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-zinc-400 max-w-3xl leading-relaxed mb-12 drop-shadow-sm font-medium mx-auto">
+                    <span class="lang-en">
+                        I am a 3rd-year Translation student and an English Trainer blending software engineering with advanced linguistics. My unique value lies in applying translation theory and NLP to software development—engineering intelligent, dialect-sensitive chatbots and seamless multilingual interfaces.
+                    </span>
+                    <span class="lang-ar">
+                        أنا طالب ترجمة في السنة الثالثة ومدرب لغة إنجليزية أدمج بين هندسة البرمجيات واللغويات المتقدمة. تكمن قيمتي الفريدة في تطبيق نظرية الترجمة ومعالجة اللغات الطبيعية (NLP) في تطوير البرمجيات—هندسة روبوتات محادثة ذكية وحساسة للهجات وواجهات متعددة اللغات بسلاسة.
+                    </span>
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="#projects" class="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-full bg-foreground text-background hover:bg-zinc-200 transition-colors shadow-xl hover:scale-105 duration-200">
+                        <span class="lang-en">View Architecture</span>
+                        <span class="lang-ar">عرض البنى التحتية</span>
+                    </a>
+                    <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-full border border-border/50 bg-surface/50 backdrop-blur hover:bg-border transition-colors shadow-lg hover:scale-105 duration-200">
+                        <span class="lang-en">Get in Touch</span>
+                        <span class="lang-ar">تواصل معي</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <h2 class="text-sm font-semibold uppercase tracking-widest text-accent mb-4">
+                        <span class="lang-en">Executive Summary</span>
+                        <span class="lang-ar">الملخص التنفيذي</span>
+                    </h2>
+                    <h3 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                        <span class="lang-en">Engineering at the intersection of syntax and semantics.</span>
+                        <span class="lang-ar">هندسة في تقاطع بناء الجملة وعلم الدلالة.</span>
+                    </h3>
+                </div>
+                <div class="lg:col-span-7">
+                    <p class="text-muted leading-relaxed text-lg mb-6">
+                        <span class="lang-en">
+                            My competitive advantage is bridging the gap between rigorous code and nuanced human communication. While I architect robust backends with advanced REST API design and concurrency control, my deep background in phonetics allows me to build AI solutions that feel native and contextually intelligent.
+                        </span>
+                        <span class="lang-ar">
+                            ميزتي التنافسية هي سد الفجوة بين الكود الصارم والتواصل البشري الدقيق. بينما أصمم أنظمة خلفية قوية بتصميم متقدم لواجهات برمجة التطبيقات (REST API) والتحكم في التزامن، تتيح لي خلفيتي العميقة في الصوتيات بناء حلول ذكاء اصطناعي تبدو طبيعية وذكية سياقياً.
+                        </span>
+                    </p>
+                    <p class="text-muted leading-relaxed text-lg">
+                        <span class="lang-en">
+                            I specialize in building production-grade platforms using AI-driven workflows like Lovable, Cursor, and Replit—cutting delivery cycles by 60-80% without compromising on architectural integrity.
+                        </span>
+                        <span class="lang-ar">
+                            أتخصص في بناء منصات على مستوى الإنتاج باستخدام مسارات عمل الذكاء الاصطناعي مثل Lovable و Cursor و Replit، مما يقلل دورات التسليم بنسبة 60-80٪ دون المساومة على سلامة البنية التحتية.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bento Grid Projects Section -->
+        <section id="projects" class="scroll-mt-24">
+            <h2 class="text-sm font-semibold uppercase tracking-widest text-accent mb-8">
+                <span class="lang-en">Technical Portfolio</span>
+                <span class="lang-ar">معرض الأعمال التقنية</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(300px,_auto)]">
+                
+                <!-- Iraqi Dialect AI Chat -->
+                <div class="group relative overflow-hidden rounded-3xl bg-surface border border-border p-8 md:col-span-2 flex flex-col justify-between transition-all animate-antigravity hover:border-muted">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-transparent opacity-50"></div>
+                    <div class="relative z-10 mb-8">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-background border border-border text-xs font-medium text-accent mb-4">
+                            <span class="lang-en">NLP & Language-Aware Systems</span>
+                            <span class="lang-ar">أنظمة إدراك اللغة و NLP</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4">
+                            <span class="lang-en">Iraqi Dialect AI Chat</span>
+                            <span class="lang-ar">دردشة الذكاء الاصطناعي باللهجة العراقية</span>
+                        </h3>
+                        <p class="text-muted leading-relaxed max-w-lg text-lg">
+                            <span class="lang-en">An NLP-driven agent optimized for understanding and processing Iraqi Arabic dialects. Architected with Lovable and advanced AI workflows to bridge standard LLMs with colloquial nuances.</span>
+                            <span class="lang-ar">وكيل يعتمد على معالجة اللغات الطبيعية مُحسّن لفهم ومعالجة اللهجات العراقية. تم تصميمه باستخدام Lovable ومسارات عمل الذكاء الاصطناعي لربط النماذج اللغوية بالتفاصيل المحلية.</span>
+                        </p>
+                    </div>
+                    <div class="relative z-10 flex flex-wrap gap-3">
+                        <span class="px-3 py-1 text-xs rounded-full border border-border bg-background">Lovable</span>
+                        <span class="px-3 py-1 text-xs rounded-full border border-border bg-background">Cursor</span>
+                        <span class="px-3 py-1 text-xs rounded-full border border-border bg-background">Python</span>
+                    </div>
+                </div>
+
+                <!-- Plastic Surgery Booking System -->
+                <div class="group relative overflow-hidden rounded-3xl bg-surface border border-border p-8 md:col-span-1 flex flex-col justify-between transition-all animate-antigravity hover:border-muted">
+                    <div class="relative z-10">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-background border border-border text-xs font-medium text-orange-400 mb-4">
+                            <span class="lang-en">Concurrency Logic</span>
+                            <span class="lang-ar">منطق التزامن</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">
+                            <span class="lang-en">High-Concurrency Booking System</span>
+                            <span class="lang-ar">نظام حجوزات عالي التزامن</span>
+                        </h3>
+                        <p class="text-muted leading-relaxed">
+                            <span class="lang-en">A robust booking engine featuring Pessimistic Locking logic to ensure data integrity. Architected using Lovable to handle extreme traffic spikes flawlessly.</span>
+                            <span class="lang-ar">محرك حجوزات قوي يتميز بمنطق القفل المتشائم لضمان سلامة البيانات. تم تصميمه باستخدام Lovable للتعامل مع ذروات المرور الشديدة.</span>
+                        </p>
+                    </div>
+                    <div class="relative z-10 flex flex-wrap gap-3 mt-6">
+                        <span class="px-3 py-1 text-xs rounded-full border border-border bg-background">Lovable</span>
+                        <span class="px-3 py-1 text-xs rounded-full border border-border bg-background">Pessimistic Locking</span>
+                    </div>
+                </div>
+
+                <!-- Custom Productivity Suite -->
+                <div class="group relative overflow-hidden rounded-3xl bg-surface border border-border p-8 md:col-span-1 flex flex-col justify-between transition-all animate-antigravity hover:border-muted">
+                    <div class="relative z-10">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-background border border-border text-xs font-medium text-purple-400 mb-4">
+                            <span class="lang-en">Full-Stack SaaS</span>
+                            <span class="lang-ar">منصة متكاملة</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">
+                            <span class="lang-en">Custom Productivity Suite</span>
+                            <span class="lang-ar">مجموعة الإنتاجية المخصصة</span>
+                        </h3>
+                        <p class="text-muted leading-relaxed">
+                            <span class="lang-en">A full-stack Kanban and To-Do system with drag-and-drop functionality and priority filtering. Architected entirely via Lovable and AI-driven development.</span>
+                            <span class="lang-ar">نظام متكامل لإدارة المهام ولوحة كانبان مع وظائف السحب والإفلات وتصفية الأولويات. تم تصميمه بالكامل عبر Lovable وتطوير الذكاء الاصطناعي.</span>
+                        </p>
+                    </div>
+                    <div class="relative z-10 flex flex-wrap gap-3 mt-6">
+                        <span class="px-3 py-1 text-xs rounded-full border border-border bg-background">Lovable</span>
+                        <span class="px-3 py-1 text-xs rounded-full border border-border bg-background">Drag & Drop</span>
+                    </div>
+                </div>
+
+                <!-- School Tracker -->
+                <div class="group relative overflow-hidden rounded-3xl bg-surface border border-border p-8 md:col-span-1 flex flex-col justify-between transition-all animate-antigravity hover:border-muted">
+                    <div class="relative z-10">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-background border border-border text-xs font-medium text-emerald-400 mb-4">
+                            <span class="lang-en">Management System</span>
+                            <span class="lang-ar">نظام إدارة</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">
+                            <span class="lang-en">School Tracker</span>
+                            <span class="lang-ar">المتتبع المدرسي</span>
+                        </h3>
+                        <p class="text-muted leading-relaxed">
+                            <span class="lang-en">A management platform for parents and educators to monitor academic performance. Architected using Lovable to deliver a seamless and intuitive user experience.</span>
+                            <span class="lang-ar">منصة إدارة للآباء والمعلمين لمراقبة الأداء الأكاديمي. تم تصميمها باستخدام Lovable لتقديم تجربة مستخدم سلسة وبديهية.</span>
+                        </p>
+                    </div>
+                    <div class="relative z-10 flex flex-wrap gap-3 mt-6">
+                        <span class="px-3 py-1 text-xs rounded-full border border-border bg-background">Lovable</span>
+                        <span class="px-3 py-1 text-xs rounded-full border border-border bg-background">Dashboards</span>
+                    </div>
+                </div>
+
+                <!-- Personal AI Prompt Library -->
+                <div class="group relative overflow-hidden rounded-3xl bg-surface border border-border p-8 md:col-span-1 flex flex-col justify-between transition-all animate-antigravity hover:border-muted">
+                    <div class="relative z-10">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-background border border-border text-xs font-medium text-pink-400 mb-4">
+                            <span class="lang-en">AI Workflows</span>
+                            <span class="lang-ar">مسارات الذكاء الاصطناعي</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">
+                            <span class="lang-en">Personal AI Prompt Library</span>
+                            <span class="lang-ar">مكتبة مطالبات الذكاء الاصطناعي</span>
+                        </h3>
+                        <p class="text-muted leading-relaxed">
+                            <span class="lang-en">A curated repository of advanced engineering prompts for various LLM workflows. Architected with Lovable to optimize AI development speed and precision.</span>
+                            <span class="lang-ar">مستودع منظم لمطالبات هندسية متقدمة لمسارات عمل مختلفة لنماذج اللغات. تم تصميمه بواسطة Lovable لتحسين سرعة تطوير الذكاء الاصطناعي ودقته.</span>
+                        </p>
+                    </div>
+                    <div class="relative z-10 flex flex-wrap gap-3 mt-6">
+                        <span class="px-3 py-1 text-xs rounded-full border border-border bg-background">Lovable</span>
+                        <span class="px-3 py-1 text-xs rounded-full border border-border bg-background">Prompt Engineering</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="scroll-mt-24">
+            <h2 class="text-sm font-semibold uppercase tracking-widest text-accent mb-8">
+                <span class="lang-en">Skills Taxonomy</span>
+                <span class="lang-ar">تصنيف المهارات</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <div class="p-6 rounded-2xl bg-surface border border-border animate-antigravity group">
+                    <h4 class="font-bold mb-4 text-foreground">
+                        <span class="lang-en">AI-Driven Development</span>
+                        <span class="lang-ar">التطوير بالذكاء الاصطناعي</span>
+                    </h4>
+                    <p class="text-xs text-muted mb-4">
+                        <span class="lang-en">Primary engines for building production-grade SaaS.</span>
+                        <span class="lang-ar">المحركات الأساسية لبناء منصات SaaS بمستوى الإنتاج.</span>
+                    </p>
+                    <ul class="space-y-2 text-sm text-muted">
+                        <li>Lovable</li>
+                        <li>Cursor</li>
+                        <li>Replit</li>
+                        <li>LLM Prompting</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-surface border border-border animate-antigravity group">
+                    <h4 class="font-bold mb-4 text-foreground">
+                        <span class="lang-en">Systems Architecture</span>
+                        <span class="lang-ar">بنية الأنظمة</span>
+                    </h4>
+                    <p class="text-xs text-muted mb-4">
+                        <span class="lang-en">High-concurrency logic & resilient data structures.</span>
+                        <span class="lang-ar">منطق عالي التزامن وهياكل بيانات مرنة.</span>
+                    </p>
+                    <ul class="space-y-2 text-sm text-muted">
+                        <li>REST API Design</li>
+                        <li>DB Transactions</li>
+                        <li>Pessimistic Locking</li>
+                        <li>Concurrency Control</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-surface border border-border animate-antigravity group">
+                    <h4 class="font-bold mb-4 text-foreground">
+                        <span class="lang-en">Linguistics & NLP</span>
+                        <span class="lang-ar">اللغويات والـ NLP</span>
+                    </h4>
+                    <p class="text-xs text-muted mb-4">
+                        <span class="lang-en">Bridging code and semantic human communication.</span>
+                        <span class="lang-ar">سد الفجوة بين الكود والتواصل البشري الدلالي.</span>
+                    </p>
+                    <ul class="space-y-2 text-sm text-muted">
+                        <li>Iraqi Dialect NLP</li>
+                        <li>Phonetics</li>
+                        <li>Accent Coaching</li>
+                        <li>Translation Theory</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-surface border border-border animate-antigravity group">
+                    <h4 class="font-bold mb-4 text-foreground">
+                        <span class="lang-en">Tools & Deployment</span>
+                        <span class="lang-ar">الأدوات والنشر</span>
+                    </h4>
+                    <p class="text-xs text-muted mb-4">
+                        <span class="lang-en">Essential tools for an AI-first development pipeline.</span>
+                        <span class="lang-ar">الأدوات الأساسية لمسار التطوير المعتمد على الذكاء الاصطناعي.</span>
+                    </p>
+                    <ul class="space-y-2 text-sm text-muted">
+                        <li>Supabase</li>
+                        <li>Vercel</li>
+                        <li>Git / GitHub</li>
+                        <li>PostgreSQL</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Linguistics Dedicated Section -->
+        <section id="linguistics" class="scroll-mt-24">
+            <div class="rounded-3xl border border-border glass p-8 md:p-16 relative overflow-hidden animate-antigravity group">
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-accent/10 blur-3xl rounded-full"></div>
+                
+                <h2 class="text-sm font-semibold uppercase tracking-widest text-accent mb-4">
+                    <span class="lang-en">Linguistics & Services</span>
+                    <span class="lang-ar">اللغويات والخدمات</span>
+                </h2>
+                <h3 class="text-3xl md:text-4xl font-bold tracking-tight mb-10 max-w-2xl">
+                    <span class="lang-en">Elevating communication through precision training and translation.</span>
+                    <span class="lang-ar">الارتقاء بالتواصل من خلال التدريب والترجمة الدقيقة.</span>
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
+                    <div>
+                        <h4 class="text-xl font-bold mb-3 flex items-center gap-3">
+                            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+                            <span class="lang-en">American Accent Coach</span>
+                            <span class="lang-ar">مدرب اللكنة الأمريكية</span>
+                        </h4>
+                        <p class="text-muted leading-relaxed">
+                            <span class="lang-en">
+                                As a 3rd-year Translation student and American Accent Coach, I empower non-native speakers to achieve fluency. I provide comprehensive training focused specifically on American phonetics and intonation to help you sound natural and confident.
+                            </span>
+                            <span class="lang-ar">
+                                بصفتي طالب ترجمة في السنة الثالثة ومدرباً للكنة الأمريكية، أقوم بتمكين الناطقين بغيرها من تحقيق الطلاقة. أقدم تدريباً شاملاً يركز تحديداً على الصوتيات الأمريكية لمساعدتك على الظهور بثقة.
+                            </span>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-3 flex items-center gap-3">
+                            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" /></svg>
+                            <span class="lang-en">Language-Aware Systems</span>
+                            <span class="lang-ar">الأنظمة المدركة للغة</span>
+                        </h4>
+                        <p class="text-muted leading-relaxed">
+                            <span class="lang-en">
+                                This hybrid background in linguistics and translation allows me to build intelligent, Language-Aware systems—such as the Iraqi Dialect AI Chat—that bridge the gap between raw code and human semantics seamlessly.
+                            </span>
+                            <span class="lang-ar">
+                                هذه الخلفية المزدوجة في اللغويات والترجمة تتيح لي بناء أنظمة ذكية تدرك الفروق اللغوية—مثل دردشة الذكاء الاصطناعي باللهجة العراقية—والتي تسد الفجوة بين الكود الخام والدلالات البشرية بسلاسة.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sleek Contact Section -->
+        <section id="contact" class="scroll-mt-24 pb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div class="space-y-6">
+                    <h2 class="text-sm font-semibold uppercase tracking-widest text-accent mb-2">
+                        <span class="lang-en">Contact</span>
+                        <span class="lang-ar">تواصل معي</span>
+                    </h2>
+                    <h3 class="text-4xl font-bold tracking-tight mb-4">
+                        <span class="lang-en">Let's build something remarkable.</span>
+                        <span class="lang-ar">لنبني شيئاً استثنائياً.</span>
+                    </h3>
+                    <p class="text-muted text-lg leading-relaxed max-w-md">
+                        <span class="lang-en">Based in Baghdad, Iraq, but fully open to remote opportunities worldwide. Whether it's an AI-driven SaaS architecture or an NLP project, I'm ready to help.</span>
+                        <span class="lang-ar">مقرّي في بغداد، العراق، ولكني منفتح تماماً على فرص العمل عن بُعد في جميع أنحاء العالم. سواء كان مشروع ذكاء اصطناعي أو معالجة لغات، أنا مستعد للمساعدة.</span>
+                    </p>
+                    <div class="pt-4 flex flex-col space-y-4">
+                        <a href="mailto:abdalla12455@gmail.com" class="inline-flex items-center gap-3 text-foreground hover:text-accent transition-colors w-max">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                            abdalla12455@gmail.com
+                        </a>
+                        <div class="inline-flex items-center gap-3 text-muted w-max">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            <span class="lang-en">Baghdad, Iraq (Worldwide Remote)</span>
+                            <span class="lang-ar">بغداد، العراق (عمل عن بعد عالمياً)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glassmorphism Form -->
+                <div class="glass p-8 rounded-3xl animate-antigravity group">
+                    <form class="space-y-4" onsubmit="event.preventDefault();">
+                        <div class="space-y-1">
+                            <label class="text-xs font-medium text-muted px-1">
+                                <span class="lang-en">Name</span>
+                                <span class="lang-ar">الاسم</span>
+                            </label>
+                            <input type="text" class="w-full glass-input px-4 py-3 rounded-xl text-sm" placeholder="John Doe">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-medium text-muted px-1">
+                                <span class="lang-en">Email</span>
+                                <span class="lang-ar">البريد الإلكتروني</span>
+                            </label>
+                            <input type="email" class="w-full glass-input px-4 py-3 rounded-xl text-sm" placeholder="john@example.com">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-medium text-muted px-1">
+                                <span class="lang-en">Message</span>
+                                <span class="lang-ar">الرسالة</span>
+                            </label>
+                            <textarea rows="4" class="w-full glass-input px-4 py-3 rounded-xl text-sm resize-none" placeholder="Let's talk about..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 rounded-xl bg-foreground text-background font-medium text-sm hover:bg-zinc-200 transition-colors mt-2">
+                            <span class="lang-en">Send Message</span>
+                            <span class="lang-ar">إرسال الرسالة</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Minimal Footer -->
+    <footer class="border-t border-border bg-surface mt-12 glass relative z-10">
+        <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-start">
+                <a href="#" class="font-semibold text-xl tracking-tight block mb-2">
+                    <span class="lang-en">AR.</span>
+                    <span class="lang-ar">ع.ر.</span>
+                </a>
+                <p class="text-sm text-muted">
+                    <span class="lang-en">AI Systems Architect & Translator.</span>
+                    <span class="lang-ar">مهندس نظم ذكاء اصطناعي ومترجم.</span>
+                </p>
+                <p class="text-xs text-muted mt-4">
+                    &copy; 2026 Abdullah Raad. <span class="lang-en">All rights reserved.</span><span class="lang-ar">جميع الحقوق محفوظة.</span>
+                </p>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex items-center gap-6">
+                <a href="#" class="text-muted hover:text-foreground transition-colors" aria-label="GitHub">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="#" class="text-muted hover:text-foreground transition-colors" aria-label="LinkedIn">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" /></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Language Toggle Script -->
+    <script>
+        function toggleLanguage() {
+            const htmlElement = document.documentElement;
+            if (htmlElement.getAttribute('lang') === 'en') {
+                htmlElement.setAttribute('lang', 'ar');
+            } else {
+                htmlElement.setAttribute('lang', 'en');
+            }
+        }
+    </script>
+</body>
+</html>
