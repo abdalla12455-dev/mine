@@ -122,16 +122,16 @@
                 </a>
             </div>
 
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-4 shrink-0">
                 <!-- Language Toggle -->
-                <button onclick="toggleLanguage()" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-border bg-surface hover:bg-border transition-colors">
-                    <span class="lang-en">عربي</span>
-                    <span class="lang-ar">EN</span>
+                <button onclick="toggleLanguage()" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-border bg-surface hover:bg-border transition-colors shrink-0">
+                    <span class="lang-en block">عربي</span>
+                    <span class="lang-ar block">EN</span>
                 </button>
 
-                <a href="#contact" class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-full bg-foreground text-background hover:bg-zinc-200 transition-colors">
-                    <span class="lang-en">Contact Me</span>
-                    <span class="lang-ar">تواصل معي</span>
+                <a href="#contact" class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-full bg-foreground text-background hover:bg-zinc-200 transition-colors shrink-0">
+                    <span class="lang-en block">Contact Me</span>
+                    <span class="lang-ar block">تواصل معي</span>
                 </a>
             </div>
         </div>
@@ -169,14 +169,14 @@
                     <span class="lang-ar">بغداد، العراق | متاح للعمل عن بُعد عالمياً</span>
                 </div>
                 
-                <h1 class="text-3xl md:text-7xl font-bold tracking-tight mb-8 leading-tight max-w-5xl drop-shadow-md mx-auto w-full">
-                    <span class="text-foreground">
-                        <span class="lang-en">Abdullah Raad.</span>
-                        <span class="lang-ar">عبدالله رعد.</span>
-                    </span><br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-500 text-3xl md:text-5xl mt-4 block">
-                        <span class="lang-en">AI Systems Architect & Full Stack Developer.</span>
-                        <span class="lang-ar">مهندس نظم ذكاء اصطناعي ومطور شامل.</span>
+                <h1 class="text-4xl md:text-7xl font-bold tracking-tight mb-8 leading-tight max-w-5xl drop-shadow-md mx-auto w-full flex flex-col items-center justify-center">
+                    <span class="text-foreground w-full">
+                        <span class="lang-en block w-full text-center">Abdullah Raad.</span>
+                        <span class="lang-ar block w-full text-center">عبدالله رعد.</span>
+                    </span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-500 text-3xl md:text-5xl mt-4 w-full">
+                        <span class="lang-en block w-full text-center">AI Systems Architect & Full Stack Developer.</span>
+                        <span class="lang-ar block w-full text-center">مهندس نظم ذكاء اصطناعي ومطور شامل.</span>
                     </span>
                 </h1>
                 
@@ -243,7 +243,7 @@
                 <span class="lang-ar">معرض الأعمال التقنية</span>
             </h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                 
                 <!-- Iraqi Dialect AI Chat -->
                 <div class="group relative overflow-hidden rounded-3xl bg-surface border border-border p-8 flex flex-col justify-between transition-all animate-antigravity hover:border-muted">
