@@ -1,411 +1,535 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdullah Raad | AI Systems Architect & Full Stack Developer</title>
-    <meta name="description" content="Portfolio of Abdullah Raad: AI Systems Architect, Full Stack Developer, and English Trainer in Baghdad, Iraq.">
-    <meta name="google" content="notranslate">
-    
-    <!-- Inter Font -->
+    <title>Abdullah Raad | Full Stack Developer & AI Systems Architect</title>
+    <meta name="description" content="Abdullah Raad — Full Stack Developer, AI Systems Architect & English Trainer based in Baghdad, Iraq. Building AI-powered production systems 60–80% faster.">
+    <meta name="keywords" content="Abdullah Raad, Full Stack Developer, AI Systems Architect, NLP, Laravel, Baghdad Iraq">
+    <meta name="author" content="Abdullah Raad">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Abdullah Raad | AI Systems Architect">
+    <meta property="og:description" content="I build AI-powered systems that scale — not just demos.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        background: '#09090b',
-                        surface: '#18181b',
-                        border: '#27272a',
-                        muted: '#a1a1aa',
-                        foreground: '#fafafa',
-                        accent: '#38bdf8',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Hide scrollbar horizontally */
-        body { overflow-x: hidden; }
-        
-        /* Language Toggle Logic */
-        html[lang="en"] .lang-ar { display: none !important; }
-        html[lang="ar"] .lang-en { display: none !important; }
-        html[lang="ar"] { direction: rtl; }
-        
-        /* Glass Utilities */
-        .glass {
-            background: rgba(9, 9, 11, 0.65);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(39, 39, 42, 0.5);
-        }
-        .glass-input {
-            background: rgba(24, 24, 27, 0.4);
-            border: 1px solid rgba(39, 39, 42, 0.8);
-            color: #fafafa;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-        .animate-float { animation: float 5s ease-in-out infinite; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-background text-foreground antialiased w-full max-w-full overflow-x-hidden">
+<body>
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 top-0 glass border-b border-border h-16">
-        <div class="max-w-6xl mx-auto px-6 h-full flex items-center justify-between">
-            <a href="#" class="font-bold text-xl text-foreground">
-                <span class="lang-en block">AR.</span>
-                <span class="lang-ar block">ع.ر.</span>
-            </a>
-            
-            <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-muted">
-                <a href="#about" class="hover:text-foreground transition-colors">
-                    <span class="lang-en block">Executive Summary</span>
-                    <span class="lang-ar block">الملخص التنفيذي</span>
-                </a>
-                <a href="#projects" class="hover:text-foreground transition-colors">
-                    <span class="lang-en block">Projects</span>
-                    <span class="lang-ar block">المشاريع</span>
-                </a>
-                <a href="#skills" class="hover:text-foreground transition-colors">
-                    <span class="lang-en block">Expertise</span>
-                    <span class="lang-ar block">الخبرات</span>
-                </a>
-                <a href="#linguistics" class="hover:text-foreground transition-colors">
-                    <span class="lang-en block">Linguistics</span>
-                    <span class="lang-ar block">اللغويات</span>
-                </a>
+    <!-- Background ambiance -->
+    <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <header class="navbar" role="banner">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo" aria-label="Abdullah Raad - Home" data-i18n-aria="aria_nav_logo"><span data-i18n="nav_logo_text">AR</span><span>.</span></a>
+            <nav class="nav-links" role="navigation" aria-label="Main navigation">
+                <a href="#about" data-i18n="nav_about">About</a>
+                <a href="#projects" data-i18n="nav_work">Work</a>
+                <a href="#skills" data-i18n="nav_skills">Skills</a>
+                <a href="#contact" class="nav-cta" data-i18n="nav_contact">Let's Talk</a>
+            </nav>
+            <div id="lang-switcher" class="lang-switcher" role="group" aria-label="Language switcher">
+                <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
+                <button class="lang-btn" data-lang="ar" aria-label="Switch to Arabic">AR</button>
             </div>
-
-            <div class="flex items-center gap-4 shrink-0">
-                <button onclick="toggleLanguage()" class="px-3 py-1.5 text-sm rounded-full border border-border bg-surface hover:bg-border transition-colors shrink-0">
-                    <span class="lang-en block">عربي</span>
-                    <span class="lang-ar block">EN</span>
-                </button>
-
-                <a href="#contact" class="px-4 py-1.5 text-sm rounded-full bg-foreground text-background font-medium hover:bg-zinc-200 transition-colors shrink-0">
-                    <span class="lang-en">Contact Me</span>
-                    <span class="lang-ar">تواصل معي</span>
-                </a>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-    </nav>
+    </header>
 
-    <!-- Main Container -->
-    <main class="w-full max-w-6xl mx-auto px-6 pt-32 pb-24 space-y-24">
-        
-        <!-- Hero Section -->
-        <section id="hero" class="relative w-full flex flex-col items-center justify-center text-center py-20 bg-surface/30 border border-border rounded-3xl overflow-hidden px-6">
-            <div class="absolute inset-0 z-0 bg-blue-500/10 blur-3xl rounded-full w-full h-full"></div>
-            
-            <div class="relative z-10 w-full animate-float flex flex-col items-center justify-center">
-                <!-- Title -->
-                <h1 class="text-4xl md:text-7xl font-bold tracking-tight mb-6 w-full max-w-4xl mx-auto">
-                    <div class="lang-en block w-full text-foreground">Abdullah Raad.</div>
-                    <div class="lang-ar block w-full text-foreground">عبدالله رعد.</div>
-                </h1>
-                
-                <!-- Subtitle -->
-                <h2 class="text-2xl md:text-4xl text-accent font-semibold mb-8 w-full max-w-4xl mx-auto">
-                    <div class="lang-en block w-full">AI Systems Architect & Full Stack Developer.</div>
-                    <div class="lang-ar block w-full">مهندس نظم ذكاء اصطناعي ومطور شامل.</div>
-                </h2>
-                
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-muted max-w-3xl mx-auto mb-10">
-                    <span class="lang-en block">Bridging software engineering with advanced linguistics. Expert in NLP, dialect-sensitive chatbots, and robust full-stack systems.</span>
-                    <span class="lang-ar block">أدمج هندسة البرمجيات مع اللغويات المتقدمة. خبير في معالجة اللغات الطبيعية وبناء أنظمة متكاملة قوية.</span>
+    <main>
+
+        <!-- ===================== HERO ===================== -->
+        <section id="hero" class="hero" aria-labelledby="hero-title">
+            <div class="container hero-container">
+                <div class="hero-availability">
+                    <span class="dot dot-green" aria-hidden="true"></span>
+                    <span data-i18n="hero_avail">Open to remote opportunities</span>
+                </div>
+
+                <h1 id="hero-title" class="hero-name" data-i18n="hero_name">Abdullah Raad</h1>
+
+                <p class="hero-roles">
+                    <span class="role-tag">Full Stack Developer</span>
+                    <span class="role-sep" aria-hidden="true">·</span>
+                    <span class="role-tag">AI Systems Architect</span>
+                    <span class="role-sep" aria-hidden="true">·</span>
+                    <span class="role-tag">English Trainer</span>
                 </p>
-                
-                <!-- Call to Actions -->
-                <div class="flex gap-4 justify-center">
-                    <a href="#projects" class="px-8 py-3 rounded-full bg-foreground text-background font-semibold hover:bg-zinc-200">
-                        <span class="lang-en">View Projects</span>
-                        <span class="lang-ar">عرض المشاريع</span>
+
+                <h2 class="hero-tagline" data-i18n="hero_tagline">
+                    I build <span class="highlight">AI-powered systems</span> that scale —<br>
+                    not just demos.
+                </h2>
+
+                <p class="hero-positioning" data-i18n="hero_positioning">
+                    I build systems that understand language — not just process data.
+                </p>
+
+                <div class="hero-ctas">
+                    <a href="#projects" class="btn btn-primary" id="hero-view-projects">
+                        <i class="ph-bold ph-rocket-launch" aria-hidden="true"></i>
+                        <span data-i18n="hero_cta_projects">View Projects</span>
+                    </a>
+                    <a href="https://wa.me/9647702755683?text=Hello%20Abdullah,%20I%20saw%20your%20projects%20and%20I%E2%80%99m%20interested%20in%20working%20with%20you%20on%20something%20similar."
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn btn-whatsapp" id="hero-whatsapp">
+                        <i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i>
+                        <span data-i18n="hero_cta_wa">WhatsApp Me</span>
+                    </a>
+                    <a href="mailto:abdalla12455@gmail.com?subject=Project%20Inquiry&body=Hello%20Abdullah,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20with%20you."
+                       class="btn btn-ghost" id="hero-email">
+                        <i class="ph-bold ph-envelope-simple" aria-hidden="true"></i>
+                        <span data-i18n="hero_cta_email">Email Me</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="scroll-mt-24">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
-                <div class="lg:col-span-5">
-                    <h2 class="text-sm font-semibold uppercase tracking-widest text-accent mb-4">
-                        <span class="lang-en">Executive Summary</span>
-                        <span class="lang-ar">الملخص التنفيذي</span>
-                    </h2>
-                    <h3 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        <span class="lang-en">Engineering at the intersection of syntax and semantics.</span>
-                        <span class="lang-ar">هندسة في تقاطع بناء الجملة وعلم الدلالة.</span>
-                    </h3>
-                </div>
-                <div class="lg:col-span-7">
-                    <p class="text-muted leading-relaxed text-lg mb-6">
-                        <span class="lang-en">
-                            My competitive advantage is bridging the gap between rigorous code and nuanced human communication. While I architect robust backends with advanced REST API design and concurrency control, my deep background in phonetics allows me to build AI solutions that feel native and contextually intelligent.
-                        </span>
-                        <span class="lang-ar">
-                            ميزتي التنافسية هي سد الفجوة بين الكود الصارم والتواصل البشري الدقيق. بينما أصمم أنظمة خلفية قوية بتصميم متقدم لواجهات برمجة التطبيقات (REST API) والتحكم في التزامن، تتيح لي خلفيتي العميقة في الصوتيات بناء حلول ذكاء اصطناعي تبدو طبيعية وذكية سياقياً.
-                        </span>
-                    </p>
-                    <p class="text-muted leading-relaxed text-lg">
-                        <span class="lang-en">
-                            I specialize in building production-grade platforms using AI-driven workflows like Lovable, Cursor, and Replit—cutting delivery cycles by 60-80% without compromising on architectural integrity.
-                        </span>
-                        <span class="lang-ar">
-                            أتخصص في بناء منصات على مستوى الإنتاج باستخدام مسارات عمل الذكاء الاصطناعي مثل Lovable و Cursor و Replit، مما يقلل دورات التسليم بنسبة 60-80٪ دون المساومة على سلامة البنية التحتية.
-                        </span>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Grid Section (Bento Grid) -->
-        <section id="projects" class="w-full">
-            <h2 class="text-sm font-semibold uppercase tracking-widest text-accent mb-8 text-center md:text-start">
-                <span class="lang-en">Technical Portfolio</span>
-                <span class="lang-ar">معرض الأعمال التقنية</span>
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-                
-                <!-- Project 1 -->
-                <div class="bg-surface border border-border p-6 rounded-3xl animate-float">
-                    <h3 class="text-xl font-bold mb-3 text-foreground">
-                        <span class="lang-en">Iraqi Dialect AI Chat</span>
-                        <span class="lang-ar">دردشة الذكاء الاصطناعي</span>
-                    </h3>
-                    <p class="text-muted text-sm mb-4">
-                        <span class="lang-en">NLP-driven agent optimized for Iraqi Arabic dialects, bridging standard LLMs with colloquial nuances.</span>
-                        <span class="lang-ar">وكيل يعتمد على معالجة اللغات الطبيعية مُحسّن لفهم ومعالجة اللهجات العراقية.</span>
-                    </p>
-                    <div class="flex gap-2 text-xs text-accent"><span>Python</span><span>NLP</span><span>AI</span></div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="bg-surface border border-border p-6 rounded-3xl animate-float">
-                    <h3 class="text-xl font-bold mb-3 text-foreground">
-                        <span class="lang-en">High-Concurrency Booking</span>
-                        <span class="lang-ar">نظام حجوزات عالي التزامن</span>
-                    </h3>
-                    <p class="text-muted text-sm mb-4">
-                        <span class="lang-en">Robust booking engine featuring Pessimistic Locking logic to ensure data integrity during traffic spikes.</span>
-                        <span class="lang-ar">محرك حجوزات قوي يتميز بمنطق القفل المتشائم لضمان سلامة البيانات.</span>
-                    </p>
-                    <div class="flex gap-2 text-xs text-accent"><span>PostgreSQL</span><span>Locking</span></div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="bg-surface border border-border p-6 rounded-3xl animate-float">
-                    <h3 class="text-xl font-bold mb-3 text-foreground">
-                        <span class="lang-en">Full-Stack SaaS Suite</span>
-                        <span class="lang-ar">مجموعة الإنتاجية</span>
-                    </h3>
-                    <p class="text-muted text-sm mb-4">
-                        <span class="lang-en">Kanban and To-Do system with drag-and-drop functionality built with modern scalable architecture.</span>
-                        <span class="lang-ar">نظام متكامل لإدارة المهام ولوحة كانبان مع وظائف السحب والإفلات.</span>
-                    </p>
-                    <div class="flex gap-2 text-xs text-accent"><span>React</span><span>Node</span></div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="scroll-mt-24">
-            <h2 class="text-sm font-semibold uppercase tracking-widest text-accent mb-8">
-                <span class="lang-en">Skills Taxonomy</span>
-                <span class="lang-ar">تصنيف المهارات</span>
-            </h2>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-                
-                <div class="p-6 rounded-2xl bg-surface border border-border animate-float group">
-                    <h4 class="font-bold mb-4 text-foreground">
-                        <span class="lang-en">AI-Driven Development</span>
-                        <span class="lang-ar">التطوير بالذكاء الاصطناعي</span>
-                    </h4>
-                    <p class="text-xs text-muted mb-4">
-                        <span class="lang-en">Primary engines for building production-grade SaaS.</span>
-                        <span class="lang-ar">المحركات الأساسية لبناء منصات SaaS بمستوى الإنتاج.</span>
-                    </p>
-                    <ul class="space-y-2 text-sm text-muted">
-                        <li>Lovable</li>
-                        <li>Cursor</li>
-                        <li>Replit</li>
-                        <li>LLM Prompting</li>
-                    </ul>
-                </div>
-
-                <div class="p-6 rounded-2xl bg-surface border border-border animate-float group">
-                    <h4 class="font-bold mb-4 text-foreground">
-                        <span class="lang-en">Systems Architecture</span>
-                        <span class="lang-ar">بنية الأنظمة</span>
-                    </h4>
-                    <p class="text-xs text-muted mb-4">
-                        <span class="lang-en">High-concurrency logic & resilient data structures.</span>
-                        <span class="lang-ar">منطق عالي التزامن وهياكل بيانات مرنة.</span>
-                    </p>
-                    <ul class="space-y-2 text-sm text-muted">
-                        <li>REST API Design</li>
-                        <li>DB Transactions</li>
-                        <li>Pessimistic Locking</li>
-                        <li>Concurrency Control</li>
-                    </ul>
-                </div>
-
-                <div class="p-6 rounded-2xl bg-surface border border-border animate-float group">
-                    <h4 class="font-bold mb-4 text-foreground">
-                        <span class="lang-en">Linguistics & NLP</span>
-                        <span class="lang-ar">اللغويات والـ NLP</span>
-                    </h4>
-                    <p class="text-xs text-muted mb-4">
-                        <span class="lang-en">Bridging code and semantic human communication.</span>
-                        <span class="lang-ar">سد الفجوة بين الكود والتواصل البشري الدلالي.</span>
-                    </p>
-                    <ul class="space-y-2 text-sm text-muted">
-                        <li>Iraqi Dialect NLP</li>
-                        <li>Phonetics</li>
-                        <li>Accent Coaching</li>
-                        <li>Translation Theory</li>
-                    </ul>
-                </div>
-
-                <div class="p-6 rounded-2xl bg-surface border border-border animate-float group">
-                    <h4 class="font-bold mb-4 text-foreground">
-                        <span class="lang-en">Tools & Deployment</span>
-                        <span class="lang-ar">الأدوات والنشر</span>
-                    </h4>
-                    <p class="text-xs text-muted mb-4">
-                        <span class="lang-en">Essential tools for an AI-first development pipeline.</span>
-                        <span class="lang-ar">الأدوات الأساسية لمسار التطوير المعتمد على الذكاء الاصطناعي.</span>
-                    </p>
-                    <ul class="space-y-2 text-sm text-muted">
-                        <li>Supabase</li>
-                        <li>Vercel</li>
-                        <li>Git / GitHub</li>
-                        <li>PostgreSQL</li>
-                    </ul>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Linguistics Dedicated Section -->
-        <section id="linguistics" class="scroll-mt-24">
-            <div class="rounded-3xl border border-border glass p-8 md:p-16 relative overflow-hidden animate-float group">
-                <div class="absolute -right-20 -top-20 w-64 h-64 bg-accent/10 blur-3xl rounded-full"></div>
-                
-                <h2 class="text-sm font-semibold uppercase tracking-widest text-accent mb-4">
-                    <span class="lang-en">Linguistics & Services</span>
-                    <span class="lang-ar">اللغويات والخدمات</span>
-                </h2>
-                <h3 class="text-3xl md:text-4xl font-bold tracking-tight mb-10 max-w-2xl">
-                    <span class="lang-en">Elevating communication through precision training and translation.</span>
-                    <span class="lang-ar">الارتقاء بالتواصل من خلال التدريب والترجمة الدقيقة.</span>
-                </h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10 w-full">
-                    <div>
-                        <h4 class="text-xl font-bold mb-3 flex items-center gap-3">
-                            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
-                            <span class="lang-en">American Accent Coach</span>
-                            <span class="lang-ar">مدرب اللكنة الأمريكية</span>
-                        </h4>
-                        <p class="text-muted leading-relaxed">
-                            <span class="lang-en">
-                                As a 3rd-year Translation student and American Accent Coach, I empower non-native speakers to achieve fluency. I provide comprehensive training focused specifically on American phonetics and intonation to help you sound natural and confident.
-                            </span>
-                            <span class="lang-ar">
-                                بصفتي طالب ترجمة في السنة الثالثة ومدرباً للكنة الأمريكية، أقوم بتمكين الناطقين بغيرها من تحقيق الطلاقة. أقدم تدريباً شاملاً يركز تحديداً على الصوتيات الأمريكية لمساعدتك على الظهور بثقة.
-                            </span>
-                        </p>
+        <!-- ===================== ABOUT ===================== -->
+        <section id="about" class="section about" aria-labelledby="about-title">
+            <div class="container">
+                <p class="eyebrow" data-i18n="about_eyebrow">Background</p>
+                <h2 id="about-title" class="section-heading" data-i18n="about_heading">The Engineering Edge</h2>
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p data-i18n="about_p1">I don't write code — I architect intelligence. My discipline fuses advanced software engineering with linguistics, producing systems that don't just store and retrieve data, but understand context, intent, and human nuance.</p>
+                        <p data-i18n="about_p2">By embedding elite AI tools (Cursor, AntiGravity, LLM pipelines) directly into my development process, I consistently compress project timelines by <strong>60–80%</strong> — without cutting corners on architecture, security, or performance.</p>
+                        <p data-i18n="about_p3">The result: production-grade systems delivered at startup speed, built to withstand real-world concurrency, scale, and adversarial conditions.</p>
                     </div>
-                    <div>
-                        <h4 class="text-xl font-bold mb-3 flex items-center gap-3">
-                            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" /></svg>
-                            <span class="lang-en">Language-Aware Systems</span>
-                            <span class="lang-ar">الأنظمة المدركة للغة</span>
-                        </h4>
-                        <p class="text-muted leading-relaxed">
-                            <span class="lang-en">
-                                This hybrid background in linguistics and translation allows me to build intelligent, Language-Aware systems—such as the Iraqi Dialect AI Chat—that bridge the gap between raw code and human semantics seamlessly.
-                            </span>
-                            <span class="lang-ar">
-                                هذه الخلفية المزدوجة في اللغويات والترجمة تتيح لي بناء أنظمة ذكية تدرك الفروق اللغوية—مثل دردشة الذكاء الاصطناعي باللهجة العراقية—والتي تسد الفجوة بين الكود الخام والدلالات البشرية بسلاسة.
-                            </span>
-                        </p>
+                    <div class="about-metrics">
+                        <div class="metric-card reveal" style="--delay: 0s">
+                            <div class="metric-icon"><i class="ph-bold ph-trend-up"></i></div>
+                            <div class="metric-value">60–80%</div>
+                            <div class="metric-label" data-i18n="metric_delivery">Faster Delivery</div>
+                        </div>
+                        <div class="metric-card reveal" style="--delay: 0.1s">
+                            <div class="metric-icon"><i class="ph-bold ph-cpu"></i></div>
+                            <div class="metric-value">5+</div>
+                            <div class="metric-label" data-i18n="metric_systems">Production Systems</div>
+                        </div>
+                        <div class="metric-card reveal" style="--delay: 0.2s">
+                            <div class="metric-icon"><i class="ph-bold ph-translate"></i></div>
+                            <div class="metric-value">3</div>
+                            <div class="metric-label" data-i18n="metric_langs">Languages Spoken</div>
+                        </div>
+                        <div class="metric-card reveal" style="--delay: 0.3s">
+                            <div class="metric-icon"><i class="ph-bold ph-shield-check"></i></div>
+                            <div class="metric-value">Zero</div>
+                            <div class="metric-label" data-i18n="metric_race">Race Conditions</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="w-full">
-            <div class="glass p-8 rounded-3xl max-w-xl mx-auto w-full">
-                <h2 class="text-2xl font-bold mb-6 text-center text-foreground">
-                    <span class="lang-en">Let's build something remarkable.</span>
-                    <span class="lang-ar">لنبني شيئاً استثنائياً.</span>
-                </h2>
-                
-                <form action="https://formspree.io/f/xbdqyrzg" method="POST" class="flex flex-col space-y-4 w-full">
-                    <div class="flex flex-col w-full">
-                        <label class="text-xs text-muted mb-1">
-                            <span class="lang-en">Name</span>
-                            <span class="lang-ar">الاسم</span>
-                        </label>
-                        <input type="text" name="name" required class="glass-input px-4 py-3 rounded-xl w-full" placeholder="John Doe">
+        <!-- ===================== WHAT MAKES ME DIFFERENT ===================== -->
+        <section class="section differentials section-alt" aria-labelledby="diff-title">
+            <div class="container">
+                <p class="eyebrow" data-i18n="diff_eyebrow">Differentiators</p>
+                <h2 id="diff-title" class="section-heading" data-i18n="diff_heading">What Makes Me Different</h2>
+                <div class="diff-grid">
+                    <div class="diff-card reveal" style="--delay: 0s">
+                        <div class="diff-icon-wrap"><i class="ph-duotone ph-translate"></i></div>
+                        <h3 data-i18n="diff1_title">Language-Aware Engineering</h3>
+                        <p data-i18n="diff1_body">As an English Trainer with a linguistics background, I architect NLP systems that parse cultural context, dialect nuance, and human intent — not just tokens and embeddings.</p>
                     </div>
-                    
-                    <div class="flex flex-col w-full">
-                        <label class="text-xs text-muted mb-1">
-                            <span class="lang-en">Email</span>
-                            <span class="lang-ar">البريد الإلكتروني</span>
-                        </label>
-                        <input type="email" name="email" required class="glass-input px-4 py-3 rounded-xl w-full" placeholder="john@example.com">
+                    <div class="diff-card reveal" style="--delay: 0.1s">
+                        <div class="diff-icon-wrap"><i class="ph-duotone ph-lightning"></i></div>
+                        <h3 data-i18n="diff2_title">AI-Accelerated Delivery</h3>
+                        <p data-i18n="diff2_body">I orchestrate advanced AI development environments — Cursor, AntiGravity, GitHub Copilot — to compress delivery timelines to a fraction of standard cycles. Same quality. Less time.</p>
                     </div>
-                    
-                    <div class="flex flex-col w-full">
-                        <label class="text-xs text-muted mb-1">
-                            <span class="lang-en">Message</span>
-                            <span class="lang-ar">الرسالة</span>
-                        </label>
-                        <textarea name="message" required rows="4" class="glass-input px-4 py-3 rounded-xl w-full resize-none" placeholder="Let's talk about..."></textarea>
+                    <div class="diff-card reveal" style="--delay: 0.2s">
+                        <div class="diff-icon-wrap"><i class="ph-duotone ph-factory"></i></div>
+                        <h3 data-i18n="diff3_title">Production Over Prototypes</h3>
+                        <p data-i18n="diff3_body">I build for real-world conditions: high-concurrency scenarios, pessimistic locking, atomic transactions, rate limiting. Systems that survive load, not just demos that survive a pitch.</p>
                     </div>
-                    
-                    <button type="submit" class="w-full py-3 rounded-xl bg-foreground text-background font-bold hover:bg-zinc-200 transition-colors mt-2">
-                        <span class="lang-en">Send Message</span>
-                        <span class="lang-ar">إرسال الرسالة</span>
-                    </button>
-                </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PROJECTS ===================== -->
+        <section id="projects" class="section projects" aria-labelledby="projects-title">
+            <div class="container">
+                <p class="eyebrow" data-i18n="proj_eyebrow">Production Systems</p>
+                <h2 id="projects-title" class="section-heading" data-i18n="proj_heading">Featured Work</h2>
+                <p class="section-sub" data-i18n="proj_sub">Real challenges. Intelligent architecture. Measurable outcomes.</p>
+
+                <div class="projects-grid">
+
+                    <!-- Project 1 -->
+                    <article class="project-card reveal" style="--delay: 0s" aria-label="Iraqi Dialect AI Chat project">
+                        <div class="project-img">
+                            <img src="assets/iraqi_chat.png" alt="Iraqi Dialect AI Chat interface mockup" loading="lazy" data-i18n-alt="alt_iraqi_chat">
+                            <div class="project-img-overlay" aria-hidden="true"></div>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title" data-i18n="p1_title">Iraqi Dialect AI Chat</h3>
+                            <div class="project-tags" aria-label="Technologies used">
+                                <span>NLP</span><span>Arabic AI</span><span>LLM</span><span>Python</span>
+                            </div>
+                            <div class="project-psr">
+                                <div class="psr-item">
+                                    <span class="psr-label" data-i18n="psr_problem">Problem</span>
+                                    <p data-i18n="p1_prob">Standard LLMs fail to comprehend Iraqi Arabic dialect — producing irrelevant, low-confidence outputs that erode user trust.</p>
+                                </div>
+                                <div class="psr-item">
+                                    <span class="psr-label" data-i18n="psr_solution">Solution</span>
+                                    <p data-i18n="p1_sol">Engineered a localized NLP pipeline strictly fine-tuned on Iraqi dialect syntax, idioms, and phonetic patterns.</p>
+                                </div>
+                                <div class="psr-item psr-result">
+                                    <span class="psr-label accent-label" data-i18n="psr_result">Result</span>
+                                    <p data-i18n="p1_res">Near-native dialect comprehension and culturally resonant responses — eliminating the language gap for Iraqi end users.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card reveal" style="--delay: 0.1s" aria-label="Prompt Library SaaS Platform project">
+                        <div class="project-img">
+                            <img src="assets/prompt_saas.png" alt="Prompt Library SaaS dashboard mockup" loading="lazy" data-i18n-alt="alt_prompt_saas">
+                            <div class="project-img-overlay" aria-hidden="true"></div>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title" data-i18n="p2_title">Prompt Library SaaS Platform</h3>
+                            <div class="project-tags" aria-label="Technologies used">
+                                <span>React</span><span>Node.js</span><span>PostgreSQL</span><span>LLM APIs</span>
+                            </div>
+                            <div class="project-psr">
+                                <div class="psr-item">
+                                    <span class="psr-label" data-i18n="psr_problem">Problem</span>
+                                    <p data-i18n="p2_prob">Engineering teams lack centralized, versioned storage for AI prompts — resulting in duplicated effort and inconsistent outputs.</p>
+                                </div>
+                                <div class="psr-item">
+                                    <span class="psr-label" data-i18n="psr_solution">Solution</span>
+                                    <p data-i18n="p2_sol">Built a multi-tenant SaaS platform with real-time workspaces, strict prompt versioning, and API integration layers.</p>
+                                </div>
+                                <div class="psr-item psr-result">
+                                    <span class="psr-label accent-label" data-i18n="psr_result">Result</span>
+                                    <p data-i18n="p2_res">Standardized AI workflows across teams — reducing prompt redundancy and measurably improving LLM output quality.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card reveal" style="--delay: 0s" aria-label="Plastic Surgery Booking System project">
+                        <div class="project-img">
+                            <img src="assets/booking_system.png" alt="Clinic booking system dashboard mockup" loading="lazy" data-i18n-alt="alt_booking_system">
+                            <div class="project-img-overlay" aria-hidden="true"></div>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title" data-i18n="p3_title">Plastic Surgery Booking System</h3>
+                            <div class="project-tags" aria-label="Technologies used">
+                                <span>Laravel</span><span>MySQL</span><span>Pessimistic Locking</span><span>Queues</span>
+                            </div>
+                            <div class="project-psr">
+                                <div class="psr-item">
+                                    <span class="psr-label" data-i18n="psr_problem">Problem</span>
+                                    <p data-i18n="p3_prob">Traffic spikes during booking releases caused race conditions — double-booking doctors' schedules under concurrent load.</p>
+                                </div>
+                                <div class="psr-item">
+                                    <span class="psr-label" data-i18n="psr_solution">Solution</span>
+                                    <p data-i18n="p3_sol">Rebuilt transaction layer with pessimistic DB locking, atomic queue processing, and strict rate limiting on booking endpoints.</p>
+                                </div>
+                                <div class="psr-item psr-result">
+                                    <span class="psr-label accent-label" data-i18n="psr_result">Result</span>
+                                    <p data-i18n="p3_res">Zero double-bookings post-launch. System sustained peak loads without degradation or data inconsistency.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4 -->
+                    <article class="project-card reveal" style="--delay: 0.1s" aria-label="Qiyafe Retail Platform project">
+                        <div class="project-img">
+                            <img src="assets/retail_platform.png" alt="Qiyafe retail e-commerce dashboard mockup" loading="lazy" data-i18n-alt="alt_retail_platform">
+                            <div class="project-img-overlay" aria-hidden="true"></div>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title" data-i18n="p4_title">Qiyafe Retail Platform</h3>
+                            <div class="project-tags" aria-label="Technologies used">
+                                <span>E-commerce</span><span>REST APIs</span><span>Microservices</span><span>Laravel</span>
+                            </div>
+                            <div class="project-psr">
+                                <div class="psr-item">
+                                    <span class="psr-label" data-i18n="psr_problem">Problem</span>
+                                    <p data-i18n="p4_prob">Legacy monolithic architecture couldn't scale during seasonal traffic spikes — causing failures and lost conversions.</p>
+                                </div>
+                                <div class="psr-item">
+                                    <span class="psr-label" data-i18n="psr_solution">Solution</span>
+                                    <p data-i18n="p4_sol">Migrated to decoupled microservices architecture with a high-performance frontend and dedicated API gateway.</p>
+                                </div>
+                                <div class="psr-item psr-result">
+                                    <span class="psr-label accent-label" data-i18n="psr_result">Result</span>
+                                    <p data-i18n="p4_res">Full availability during peak traffic. Accelerated customer conversion funnel and reduced infrastructure cost.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 5 -->
+                    <article class="project-card project-card-wide reveal" style="--delay: 0s" aria-label="School Tracker System project">
+                        <div class="project-img">
+                            <img src="assets/school_tracker.png" alt="School performance analytics dashboard mockup" loading="lazy" data-i18n-alt="alt_school_tracker">
+                            <div class="project-img-overlay" aria-hidden="true"></div>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title" data-i18n="p5_title">School Data Tracker System</h3>
+                            <div class="project-tags" aria-label="Technologies used">
+                                <span>Full Stack</span><span>Data Visualization</span><span>Analytics</span><span>Real-time</span>
+                            </div>
+                            <div class="project-psr">
+                                <div class="psr-item">
+                                    <span class="psr-label" data-i18n="psr_problem">Problem</span>
+                                    <p data-i18n="p5_prob">Educational administrators operated on fragmented data — no unified view of student attrition, GPA trends, or faculty load.</p>
+                                </div>
+                                <div class="psr-item">
+                                    <span class="psr-label" data-i18n="psr_solution">Solution</span>
+                                    <p data-i18n="p5_sol">Deployed a centralized analytics dashboard combining fragmented data sources into real-time, interactive visual reports.</p>
+                                </div>
+                                <div class="psr-item psr-result">
+                                    <span class="psr-label accent-label" data-i18n="psr_result">Result</span>
+                                    <p data-i18n="p5_res">Enabled data-driven administrative decisions — early intervention for at-risk students and streamlined institutional reporting.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SKILLS ===================== -->
+        <section id="skills" class="section skills section-alt" aria-labelledby="skills-title">
+            <div class="container">
+                <p class="eyebrow" data-i18n="skills_eyebrow">Capabilities</p>
+                <h2 id="skills-title" class="section-heading" data-i18n="skills_heading">Technical Stack</h2>
+                <div class="skills-grid">
+                    <div class="skill-card reveal" style="--delay: 0s">
+                        <div class="skill-card-header">
+                            <i class="ph-duotone ph-brain"></i>
+                            <h3 data-i18n="skill1_title">AI &amp; NLP</h3>
+                        </div>
+                        <ul data-skill-list="1">
+                            <li>Prompt Engineering</li>
+                            <li>Natural Language Processing</li>
+                            <li>LLM Workflows &amp; Orchestration</li>
+                            <li>Fine-tuning &amp; Evaluation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card reveal" style="--delay: 0.1s">
+                        <div class="skill-card-header">
+                            <i class="ph-duotone ph-database"></i>
+                            <h3 data-i18n="skill2_title">Backend</h3>
+                        </div>
+                        <ul data-skill-list="2">
+                            <li>Laravel Ecosystem</li>
+                            <li>REST APIs Architecture</li>
+                            <li>DB Transactions &amp; Locking</li>
+                            <li>Rate Limiting &amp; Security</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card reveal" style="--delay: 0.2s">
+                        <div class="skill-card-header">
+                            <i class="ph-duotone ph-monitor"></i>
+                            <h3 data-i18n="skill3_title">Frontend</h3>
+                        </div>
+                        <ul data-skill-list="3">
+                            <li>UI/UX Design Systems</li>
+                            <li>Responsive &amp; Mobile-First</li>
+                            <li>Modern JS Frameworks</li>
+                            <li>Performance Optimization</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card reveal" style="--delay: 0.3s">
+                        <div class="skill-card-header">
+                            <i class="ph-duotone ph-wrench"></i>
+                            <h3 data-i18n="skill4_title">Tools &amp; DBs</h3>
+                        </div>
+                        <ul data-skill-list="4">
+                            <li>Cursor · Lovable · Replit</li>
+                            <li>AntiGravity · Git</li>
+                            <li>MySQL · PostgreSQL</li>
+                            <li>Docker · CI/CD</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== LANGUAGES ===================== -->
+        <section class="section lang-section" aria-labelledby="lang-title">
+            <div class="container">
+                <p class="eyebrow" data-i18n="lang_eyebrow">Multilingual</p>
+                <h2 id="lang-title" class="section-heading" data-i18n="lang_heading">Languages</h2>
+                <div class="lang-grid">
+                    <div class="lang-item reveal" style="--delay: 0s">
+                        <div class="lang-meta">
+                            <span class="lang-name" data-i18n="lang_arabic">Arabic</span>
+                            <span class="lang-pct" data-i18n="lang_arabic_level">Native · 100%</span>
+                        </div>
+                        <div class="lang-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                            <div class="lang-fill" style="--pct: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="lang-item reveal" style="--delay: 0.1s">
+                        <div class="lang-meta">
+                            <span class="lang-name" data-i18n="lang_iraqi">Iraqi Dialect</span>
+                            <span class="lang-pct" data-i18n="lang_iraqi_level">Native · 95%</span>
+                        </div>
+                        <div class="lang-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                            <div class="lang-fill" style="--pct: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="lang-item reveal" style="--delay: 0.2s">
+                        <div class="lang-meta">
+                            <span class="lang-name" data-i18n="lang_english">English</span>
+                            <span class="lang-pct" data-i18n="lang_english_level">Professional · 90%</span>
+                        </div>
+                        <div class="lang-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                            <div class="lang-fill" style="--pct: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CONTACT ===================== -->
+        <section id="contact" class="section contact section-alt" aria-labelledby="contact-title">
+            <div class="container">
+                <p class="eyebrow" data-i18n="contact_eyebrow">Get In Touch</p>
+                <h2 id="contact-title" class="section-heading" data-i18n="contact_heading">Let's Build Something.</h2>
+                <p class="contact-intro" data-i18n="contact_intro">
+                    I work with serious teams to build scalable, AI-integrated systems.<br>
+                    Choose how you'd like to reach out — I respond fast.
+                </p>
+
+                <div class="contact-grid">
+                    <!-- Form Side -->
+                    <div class="contact-form-container reveal" style="--delay: 0s">
+                        <form id="contact-form" class="contact-form" action="https://formspree.io/f/mqakpogw" method="POST">
+                            <div class="form-group">
+                                <label for="name" data-i18n="form_name">Full Name</label>
+                                <input type="text" id="name" name="name" required data-i18n-placeholder="form_name_placeholder" placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-i18n="form_email">Email Address</label>
+                                <input type="email" id="email" name="email" required data-i18n-placeholder="form_email_placeholder" placeholder="your@email.com">
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="subject" data-i18n="form_subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required data-i18n-placeholder="form_subject_placeholder" placeholder="How can I help you?">
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="message" data-i18n="form_message">Message</label>
+                                <textarea id="message" name="message" required data-i18n-placeholder="form_message_placeholder" placeholder="Tell me about your project..."></textarea>
+                            </div>
+                            <div class="form-group-full">
+                                <button type="submit" id="form-submit" class="btn btn-primary form-submit-btn">
+                                    <span data-i18n="form_submit">Send Message</span>
+                                </button>
+                                <div id="form-status" class="form-status"></div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Cards Side -->
+                    <div class="contact-sidebar">
+                        <div class="contact-cards">
+                            <!-- Email -->
+                            <div class="contact-card reveal" style="--delay: 0.1s">
+                                <div class="contact-card-icon email-icon">
+                                    <i class="ph-duotone ph-envelope-simple"></i>
+                                </div>
+                                <h3 data-i18n="contact_email_title">Send an Email</h3>
+                                <p class="contact-card-address">abdalla12455@gmail.com</p>
+                                <p class="contact-card-note" data-i18n="contact_email_note">Best for detailed project discussions</p>
+                                <a href="mailto:abdalla12455@gmail.com?subject=Project%20Inquiry&body=Hello%20Abdullah,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20with%20you."
+                                   class="btn btn-email-large" id="contact-email-btn">
+                                    <i class="ph-bold ph-envelope-simple"></i>
+                                    <span data-i18n="contact_email_btn">Open Email Client</span>
+                                </a>
+                            </div>
+                            <!-- WhatsApp -->
+                            <div class="contact-card contact-card-featured reveal" style="--delay: 0.2s">
+                                <div class="contact-card-icon whatsapp-icon">
+                                    <i class="ph-fill ph-whatsapp-logo"></i>
+                                </div>
+                                <h3 data-i18n="contact_wa_title">Message on WhatsApp</h3>
+                                <p class="contact-card-address">+964 770 275 5683</p>
+                                <p class="contact-card-note" data-i18n="contact_wa_note">Fastest way to reach me</p>
+                                <a href="https://wa.me/9647702755683?text=Hello%20Abdullah,%20I%20saw%20your%20projects%20and%20I%E2%80%99m%20interested%20in%20working%20with%20you%20on%20something%20similar."
+                                   target="_blank" rel="noopener noreferrer"
+                                   class="btn btn-whatsapp-large" id="contact-whatsapp-btn">
+                                    <i class="ph-fill ph-whatsapp-logo"></i>
+                                    <span data-i18n="contact_wa_btn">Chat on WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info row -->
+                <div class="contact-info-row reveal" style="--delay: 0.3s">
+                    <div class="contact-info-item">
+                        <i class="ph-fill ph-map-pin"></i>
+                        <span data-i18n="contact_location">Baghdad, Iraq</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="dot dot-green" aria-hidden="true"></span>
+                        <span data-i18n="contact_avail">Open to Remote Opportunities</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="ph-fill ph-clock"></i>
+                        <span data-i18n="contact_timezone">GMT+3 · Usually replies within hours</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
     </main>
 
-    <!-- Language Toggle Script -->
-    <script>
-        function toggleLanguage() {
-            const htmlElement = document.documentElement;
-            if (htmlElement.getAttribute('lang') === 'en') {
-                htmlElement.setAttribute('lang', 'ar');
-            } else {
-                htmlElement.setAttribute('lang', 'en');
-            }
-        }
-    </script>
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-inner">
+            <div class="footer-brand"><span data-i18n="nav_logo_text">AR</span><span>.</span></div>
+            <p class="footer-copy" data-i18n="footer_copy">&copy; 2026 Abdullah Raad — Engineered for Scale.</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/abdullah-ra-b312a3404"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Visit Abdullah Raad on LinkedIn"
+                   data-i18n-aria="aria_linkedin"
+                   class="social-icon social-linkedin">
+                    <i class="ph-fill ph-linkedin-logo"></i>
+                </a>
+                <a href="https://wa.me/9647702755683?text=Hello%20Abdullah,%20I%20saw%20your%20portfolio%20and%20I%E2%80%99m%20interested%20in%20working%20with%20you."
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Chat with Abdullah Raad on WhatsApp"
+                   data-i18n-aria="aria_whatsapp"
+                   class="social-icon social-whatsapp">
+                    <i class="ph-fill ph-whatsapp-logo"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
