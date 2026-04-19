@@ -110,6 +110,8 @@ ul { list-style: none; }
   background: var(--grad);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* ============================================
@@ -282,6 +284,8 @@ ul { list-style: none; }
   background: var(--grad);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 .role-sep { color: var(--text-faint); font-size: 1.2rem; }
 .hero-tagline {
@@ -569,18 +573,19 @@ ul { list-style: none; }
 }
 
 .contact-cards {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  max-width: 500px;
+  max-width: 860px;
   width: 100%;
   margin: 0 auto 3.5rem;
 }
 
 .contact-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -592,13 +597,13 @@ ul { list-style: none; }
 
 .contact-card:hover {
   transform: translateY(-6px);
-  border-color: var(--border-hover);
-  box-shadow: var(--shadow);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
 
 .contact-card-featured {
-  border-color: rgba(37,211,102,0.25);
-  background: rgba(37,211,102,0.03);
+  background: rgba(37, 211, 102, 0.04);
+  border-color: rgba(37, 211, 102, 0.2);
 }
 
 .contact-card-icon {
@@ -788,8 +793,9 @@ ul { list-style: none; }
   .diff-card { padding: 1.5rem; }
   .metric-card { padding: 1.5rem 1rem; }
   .project-body { padding: 1.5rem; }
+  .contact-cards { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
   .contact-card { padding: 1.5rem 1rem; }
-  .btn-email-large, .btn-whatsapp-large { width: 100%; justify-content: center; }
+  .btn, .btn-email-large, .btn-whatsapp-large { width: 100%; justify-content: center; }
 }
 
 @media (max-width: 480px) {
