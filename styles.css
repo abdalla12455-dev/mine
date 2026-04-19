@@ -99,10 +99,7 @@ ul { list-style: none; }
   margin-bottom: 1rem;
   background: var(--grad);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;
-  word-wrap: break-word;
 }
 .section-sub {
   color: var(--text-muted);
@@ -112,10 +109,7 @@ ul { list-style: none; }
 .highlight {
   background: var(--grad);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;
-  display: inline-block;
 }
 
 /* ============================================
@@ -273,7 +267,6 @@ ul { list-style: none; }
   line-height: 1.05;
   letter-spacing: -2px;
   margin-bottom: 1.25rem;
-  word-wrap: break-word;
 }
 .hero-roles {
   display: flex;
@@ -288,10 +281,7 @@ ul { list-style: none; }
   font-weight: 600;
   background: var(--grad);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;
-  display: inline-block;
 }
 .role-sep { color: var(--text-faint); font-size: 1.2rem; }
 .hero-tagline {
@@ -301,7 +291,6 @@ ul { list-style: none; }
   line-height: 1.3;
   color: var(--text);
   margin-bottom: 1rem;
-  word-wrap: break-word;
 }
 .hero-positioning {
   font-size: 1.15rem;
@@ -589,9 +578,8 @@ ul { list-style: none; }
 }
 
 .contact-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 2rem;
   display: flex;
@@ -604,14 +592,13 @@ ul { list-style: none; }
 
 .contact-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow);
 }
 
 .contact-card-featured {
-  background: rgba(37, 211, 102, 0.12);
-  border-color: rgba(37, 211, 102, 0.4);
-  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.2);
+  border-color: rgba(37,211,102,0.25);
+  background: rgba(37,211,102,0.03);
 }
 
 .contact-card-icon {
