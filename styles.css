@@ -99,7 +99,9 @@ ul { list-style: none; }
   margin-bottom: 1rem;
   background: var(--grad);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
   word-wrap: break-word;
 }
 .section-sub {
@@ -110,7 +112,10 @@ ul { list-style: none; }
 .highlight {
   background: var(--grad);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
 }
 
 /* ============================================
@@ -283,7 +288,10 @@ ul { list-style: none; }
   font-weight: 600;
   background: var(--grad);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
 }
 .role-sep { color: var(--text-faint); font-size: 1.2rem; }
 .hero-tagline {
@@ -581,9 +589,9 @@ ul { list-style: none; }
 }
 
 .contact-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   border-radius: var(--radius);
   padding: 2rem;
   display: flex;
@@ -596,14 +604,14 @@ ul { list-style: none; }
 
 .contact-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
 }
 
 .contact-card-featured {
-  background: rgba(37, 211, 102, 0.06);
-  border-color: rgba(37, 211, 102, 0.3);
-  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.15);
+  background: rgba(37, 211, 102, 0.12);
+  border-color: rgba(37, 211, 102, 0.4);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.2);
 }
 
 .contact-card-icon {
