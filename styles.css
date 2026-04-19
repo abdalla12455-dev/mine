@@ -927,4 +927,53 @@ body.rtl .footer-links {
     align-items: flex-end;
   }
 }
+/* === MOBILE FIX (FINAL) === */
+@media (max-width: 768px) {
 
+  body {
+    overflow-x: hidden;
+  }
+
+  .container,
+  .contact-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .contact-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  h1 {
+    font-size: 28px !important;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 22px !important;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+/* === CARD VISIBILITY FIX === */
+.contact-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
