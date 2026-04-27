@@ -147,7 +147,7 @@
       nav_logo_text:    'ع.ر',
 
       hero_avail:       'متاح للعمل عن بُعد',
-      hero_tagline:     'أبني <span class="highlight">أنظمة مدعومة بالذكاء الاصطناعي</span> تصمد في الإنتاج الحقيقي —<br>وليس مجرد عروض تجريبية.',
+      hero_tagline:     'لنبني شيئا معا',
       hero_positioning: 'أبني أنظمة تفهم اللغة — لا تكتفي بمعالجة البيانات.',
       hero_cta_projects:'استعرض مشاريعي',
       hero_cta_wa:      'واتساب',
@@ -225,7 +225,7 @@
       lang_english_level: 'احترافي · 90%',
 
       contact_eyebrow: 'تواصل معي',
-      contact_heading: 'لنبني شيئاً معاً.',
+      contact_heading: 'لنبني شيئا معا',
       contact_intro:   'أعمل مع فرق جادة لبناء أنظمة قابلة للتوسع ومدمجة بالذكاء الاصطناعي.<br>اختر طريقة تواصلك — أرد بسرعة.',
       contact_email_title: 'راسلني عبر البريد',
       contact_email_note:  'الأنسب لمناقشات المشاريع التفصيلية',
