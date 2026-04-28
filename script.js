@@ -147,11 +147,11 @@
       nav_logo_text:    'ع.ر',
 
       hero_avail:       'متاح للعمل عن بُعد',
-      hero_tagline:     'لنبني شيئا معا',
+      hero_tagline:     'أبني <span class="highlight">أنظمة مدعومة بالذكاء الاصطناعي</span> قابلة للتوسع —<br>وليست مجرد نماذج تجريبية.',
       hero_positioning: 'أبني أنظمة تفهم اللغة — لا تكتفي بمعالجة البيانات.',
-      hero_cta_projects:'استعرض مشاريعي',
-      hero_cta_wa:      'واتساب',
-      hero_cta_email:   'راسلني',
+      hero_cta_projects:'استعرض المشاريع',
+      hero_cta_wa:      'تواصل عبر واتساب',
+      hero_cta_email:   'راسلني إلكترونياً',
 
       about_eyebrow: 'نبذة عني',
       about_heading: 'الميزة الهندسية',

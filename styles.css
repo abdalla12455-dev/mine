@@ -274,10 +274,10 @@ ul { list-style: none; }
 }
 .hero-name {
   font-family: var(--font-head);
-  font-size: clamp(2.5rem, 8vw, 5.5rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -2px;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
   margin-bottom: 1.25rem;
 }
 .hero-roles {
@@ -305,6 +305,14 @@ ul { list-style: none; }
   line-height: 1.3;
   color: var(--text);
   margin-bottom: 1rem;
+}
+
+/* Remove complex styling for a cleaner look */
+.hero-tagline .highlight {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: var(--accent);
+  color: var(--accent);
 }
 .hero-positioning {
   font-size: 1.15rem;
@@ -606,40 +614,47 @@ ul { list-style: none; }
 
 .contact-card-icon {
   font-size: 2.5rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .email-icon { color: var(--accent); }
 .whatsapp-icon { color: var(--accent-wa); }
 .contact-card h3 {
   font-family: var(--font-head);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 .contact-card-address {
-  color: var(--text-muted);
-  font-size: 0.95rem;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
   direction: ltr;
   unicode-bidi: embed;
 }
 .contact-card-note {
-  font-size: 0.82rem;
-  color: var(--text-faint);
-  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
 }
 
 .btn-email-large, .btn-whatsapp-large {
   width: 100%;
-  max-width: 320px;
+  max-width: 280px;
   height: 56px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  border-radius: var(--radius-sm);
+  gap: 12px;
+  border-radius: 12px;
   font-family: var(--font-head);
   font-size: 1rem;
   font-weight: 700;
   color: #fff;
+  margin-top: auto;
   transition: transform 0.2s var(--ease), filter 0.2s, box-shadow 0.2s;
 }
 
@@ -783,6 +798,77 @@ ul { list-style: none; }
   .hamburger { display: flex; }
   
   .hero-roles { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+
+  /* Mobile-safe text rendering fixes */
+  h1, h2, h3, p, span, a, button {
+    overflow: visible !important;
+    line-height: 1.3 !important;
+    -webkit-text-fill-color: currentColor !important;
+    background-clip: initial !important;
+    -webkit-background-clip: initial !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .gradient-text,
+  .hero-title,
+  .section-title,
+  .section-heading,
+  .hero-name,
+  .footer-brand,
+  .highlight,
+  .role-tag {
+    background: none !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    text-shadow: none !important;
+  }
+
+  /* Specific heading weights for mobile */
+  h1, h2, h3 {
+    font-weight: 600 !important;
+  }
+
+  /* Disable risky transforms and animations on mobile */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .btn:hover, .metric-card:hover, .diff-card:hover, .project-card:hover, .social-icon:hover {
+    transform: none !important;
+  }
+
+  /* Ensure containers don't clip */
+  .hero, .hero-container, .contact, .contact-cards, .contact-card, .project-card, .project-body, .container {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: initial !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    clip-path: none !important;
+  }
+
+  /* Font stability: English (Default) */
+  body {
+    font-family: 'Inter', 'Arial', sans-serif !important;
+  }
+  h1, h2, h3, .nav-logo, .btn, .eyebrow, .hero-name, .section-heading, .hero-tagline {
+    font-family: 'Inter', 'Arial', sans-serif !important;
+  }
+
+  /* Font stability: Arabic (RTL) */
+  body.rtl, [data-lang="ar"] body {
+    font-family: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', 'Cairo', sans-serif !important;
+  }
+  body.rtl h1, body.rtl h2, body.rtl h3,
+  body.rtl .nav-logo, body.rtl .btn, body.rtl .eyebrow,
+  body.rtl .hero-name, body.rtl .section-heading, body.rtl .hero-tagline {
+    font-family: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', 'Cairo', sans-serif !important;
+  }
   .role-sep { display: none; }
   
   .hero-ctas { flex-direction: column; width: 100%; }
@@ -853,18 +939,19 @@ body {
 /* Arabic font when RTL */
 :root[dir="rtl"],
 body.rtl {
-  --font-head: "IBM Plex Sans Arabic", "Noto Sans Arabic", "Cairo", sans-serif;
-  --font-body: "IBM Plex Sans Arabic", "Noto Sans Arabic", "Cairo", sans-serif;
+  --font-head: "IBM Plex Sans Arabic", sans-serif;
+  --font-body: "IBM Plex Sans Arabic", sans-serif;
   font-family: var(--font-body);
 }
 
 body.rtl h1, body.rtl h2, body.rtl h3,
 body.rtl .hero-name, body.rtl .section-heading, body.rtl .hero-tagline {
-  font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", "Cairo", sans-serif !important;
+  font-family: "IBM Plex Sans Arabic", sans-serif !important;
   direction: rtl;
   unicode-bidi: plaintext;
-  font-feature-settings: normal;
+  font-feature-settings: "ss01", "ss02", "ss03"; /* Clean font features */
   letter-spacing: 0 !important;
+  font-weight: 600; /* Cleaner weight for Arabic headers */
 }
 
 /* Flip flex rows for RTL */
@@ -950,3 +1037,50 @@ body.rtl .footer-links {
   }
 }
 
+
+/* ============================================
+   MANDATORY MOBILE TEXT FIX (BRAVE/MOBILE)
+   ============================================ */
+@media (max-width: 768px) {
+  .gradient-text,
+  .hero-title,
+  .hero-subtitle,
+  .section-title,
+  .section-heading,
+  .hero-name,
+  .highlight,
+  .role-tag,
+  h1,
+  h2,
+  h3,
+  p,
+  span,
+  a {
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: border-box !important;
+    background-clip: border-box !important;
+    -webkit-text-fill-color: currentColor !important;
+    color: inherit !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    overflow: visible !important;
+    text-fill-color: currentColor !important;
+    -webkit-box-decoration-break: clone !important;
+    box-decoration-break: clone !important;
+  }
+
+  .hero-title,
+  .hero-name,
+  .section-heading,
+  h1,
+  h2,
+  h3 {
+    color: #ffffff !important;
+    line-height: 1.25 !important;
+  }
+
+  body {
+    overflow-x: hidden !important;
+  }
+}
