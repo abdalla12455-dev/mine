@@ -592,58 +592,83 @@ ul { list-style: none; }
 
 .contact-cards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
+/* ── Shared card shell ── */
 .contact-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 24px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-  padding: 48px 32px;
   min-height: 420px;
+  padding: 48px 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
+  /* no overflow:hidden — prevents pseudo-element clipping issues */
+  position: relative;
 }
 
+/* ── Block card-level pseudo-element decorations ── */
+/* Note: The email icon uses ph-bold (not ph-duotone) so no ::after triangle exists.
+   These rules guard against any future CSS adding decorations to the cards. */
+.contact-card::before,
+.contact-card::after,
+.contact-card-email::before,
+.contact-card-email::after,
+.contact-card-whatsapp::before,
+.contact-card-whatsapp::after,
+.contact-card-icon::before,
+.contact-card-icon::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ── Icon wrapper ── */
 .contact-card-icon {
   font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1;
 }
-.email-icon { color: var(--accent); }
+
+.email-icon    { color: var(--accent); }
 .whatsapp-icon { color: var(--accent-wa); }
+
+/* ── Card typography ── */
 .contact-card h3 {
   font-family: var(--font-head);
   font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 16px;
 }
 .contact-card-address {
   color: var(--text);
   font-size: 1.1rem;
   font-weight: 500;
-  margin-bottom: 0.25rem;
+  margin-bottom: 12px;
   direction: ltr;
   unicode-bidi: embed;
 }
 .contact-card-note {
   font-size: 0.9rem;
   color: var(--text-muted);
-  margin-bottom: 2rem;
+  margin-bottom: 48px;
+  flex: 1; /* pushes button to bottom regardless of text length */
 }
 
-.btn-email-large, .btn-whatsapp-large {
-  width: 100%;
-  max-width: 280px;
+/* ── Shared button styles ── */
+.btn-email-large,
+.btn-whatsapp-large {
+  width: 320px;
+  max-width: 100%;
   height: 56px;
   display: inline-flex;
   align-items: center;
@@ -654,7 +679,7 @@ ul { list-style: none; }
   font-size: 1rem;
   font-weight: 700;
   color: #fff;
-  margin-top: auto;
+  flex-shrink: 0;
   transition: transform 0.2s var(--ease), filter 0.2s, box-shadow 0.2s;
 }
 
@@ -662,13 +687,21 @@ ul { list-style: none; }
   background: var(--grad);
   box-shadow: 0 4px 16px rgba(129,140,248,0.25);
 }
-.btn-email-large:hover { transform: translateY(-2px); filter: brightness(1.1); box-shadow: var(--shadow-glow); }
+.btn-email-large:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: var(--shadow-glow);
+}
 
 .btn-whatsapp-large {
   background: var(--grad-wa);
   box-shadow: 0 4px 16px rgba(37,211,102,0.25);
 }
-.btn-whatsapp-large:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 0 28px rgba(37,211,102,0.35); }
+.btn-whatsapp-large:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 0 28px rgba(37,211,102,0.35);
+}
 
 
 .contact-info-row {
@@ -843,10 +876,16 @@ ul { list-style: none; }
   }
 
   /* Ensure containers don't clip */
-  .hero, .hero-container, .contact, .contact-cards, .contact-card, .project-card, .project-body, .container {
+  .hero, .hero-container, .contact, .project-card, .project-body, .container {
     overflow: visible !important;
     height: auto !important;
-    min-height: initial !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    clip-path: none !important;
+  }
+  /* Contact cards: keep min-height so they stay symmetrical on mobile */
+  .contact-card {
+    overflow: visible !important;
     mask-image: none !important;
     -webkit-mask-image: none !important;
     clip-path: none !important;
@@ -884,9 +923,23 @@ ul { list-style: none; }
   .metric-card { padding: 1.5rem 1rem; }
   .project-body { padding: 1.5rem; }
   
-  .contact-cards { grid-template-columns: 1fr; gap: 24px; padding: 0 16px; margin: 0 auto; }
-  
-  .btn, .btn-email-large, .btn-whatsapp-large { width: 100%; justify-content: center; }
+  /* Mobile contact cards: stack vertically, full-width with 16px side padding */
+  .contact-cards {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 16px;
+    margin: 0 auto;
+  }
+  .contact-card {
+    min-height: 420px;
+    width: 100%;
+  }
+  .btn-email-large,
+  .btn-whatsapp-large {
+    width: 100%;
+    max-width: 320px;
+  }
+  .btn { width: 100%; max-width: 320px; justify-content: center; }
   
   .hero-name { font-size: 28px !important; line-height: 1.3; }
   .section-heading { font-size: 22px !important; }
