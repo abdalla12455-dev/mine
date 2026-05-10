@@ -268,14 +268,19 @@
   /* ─────────────────────────────────────────
      APPLY TRANSLATIONS
   ───────────────────────────────────────── */
+  let currentModalId = null;
+
   function applyLang(lang) {
     const t = i18n[lang];
     const isAr = lang === 'ar';
 
-    /* HTML dir + lang attribute */
-    document.documentElement.lang = lang;
-    document.documentElement.dir  = isAr ? 'rtl' : 'ltr';
-    document.body.classList.toggle('rtl', isAr);
+    document.body.classList.add('lang-switching');
+
+    setTimeout(() => {
+      /* HTML dir + lang attribute */
+      document.documentElement.lang = lang;
+      document.documentElement.dir  = isAr ? 'rtl' : 'ltr';
+      document.body.classList.toggle('rtl', isAr);
 
     /* Document Title & Meta Description */
     if (t.page_title) {
@@ -340,6 +345,16 @@
 
     /* Persist */
     localStorage.setItem('ar-portfolio-lang', lang);
+
+    /* Update Modal if open */
+    if (typeof populateModal === 'function') {
+      populateModal(currentModalId, lang);
+    }
+
+    setTimeout(() => {
+      document.body.classList.remove('lang-switching');
+    }, 50);
+    }, 200);
   }
 
   /* ─────────────────────────────────────────
@@ -491,10 +506,77 @@
   }
 
   /* ─────────────────────────────────────────
+     PROJECT MODALS
+     ───────────────────────────────────────── */
+  function populateModal(id, lang) {
+    if (!id) return;
+    const t = i18n[lang];
+    const modalTitle = document.getElementById('modal-title');
+    if (!modalTitle) return; // Modal might not exist
+    
+    modalTitle.textContent = t[`p${id}_title`];
+    document.getElementById('modal-prob').textContent = t[`p${id}_prob`];
+    document.getElementById('modal-sol').textContent = t[`p${id}_sol`];
+    document.getElementById('modal-res').textContent = t[`p${id}_res`];
+    
+    const row = document.querySelector(`[data-proj-id="${id}"]`);
+    if (row) {
+        const tags = row.querySelector('.ed-proj-tags').textContent;
+        document.getElementById('modal-tags').textContent = tags;
+    }
+  }
+
+  function initModals() {
+    const modal = document.getElementById('project-modal');
+    const modalClose = document.getElementById('modal-close');
+    if (!modal || !modalClose) return;
+
+    document.querySelectorAll('.ed-project-row').forEach(row => {
+        row.addEventListener('click', () => {
+            const id = row.getAttribute('data-proj-id');
+            const lang = localStorage.getItem('ar-portfolio-lang') || 'en';
+            currentModalId = id;
+            populateModal(id, lang);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    modalClose.addEventListener('click', () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        currentModalId = null;
+    });
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            currentModalId = null;
+        }
+    });
+  }
+
+  /* ─────────────────────────────────────────
+     SKILLS INTERACTIVITY
+     ───────────────────────────────────────── */
+  function initSkills() {
+    document.querySelectorAll('.ed-skill-list').forEach(list => {
+      list.addEventListener('click', e => {
+        if (e.target.tagName === 'LI') {
+          e.target.classList.toggle('active');
+        }
+      });
+    });
+  }
+
+  /* ─────────────────────────────────────────
      BOOT
      ───────────────────────────────────────── */
   initSwitcher();
   initContactForm();
+  initModals();
+  initSkills();
   const saved = localStorage.getItem('ar-portfolio-lang') || 'en';
   applyLang(saved);
 

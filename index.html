@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="editorial-theme">
+    <!-- Background geometric lines -->
+    <div class="bg-lines" aria-hidden="true"></div>
 
     <!-- Noise Texture Overlay -->
     <div class="noise-overlay" aria-hidden="true"></div>
@@ -154,7 +156,7 @@
 
                 <div class="ed-projects-wrapper">
                     <!-- Project 1 -->
-                    <article class="ed-project-row reveal" style="--delay: 0.1s">
+                    <article class="ed-project-row reveal" style="--delay: 0.1s" data-proj-id="1" tabindex="0" role="button" aria-label="View project details">
                         <div class="ed-proj-num mono-text">01 //</div>
                         <div class="ed-proj-content">
                             <h3 class="display-medium" data-i18n="p1_title">Iraqi Dialect AI Chat</h3>
@@ -167,7 +169,7 @@
                     </article>
 
                     <!-- Project 2 -->
-                    <article class="ed-project-row reveal" style="--delay: 0.2s">
+                    <article class="ed-project-row reveal" style="--delay: 0.2s" data-proj-id="2" tabindex="0" role="button" aria-label="View project details">
                         <div class="ed-proj-num mono-text">02 //</div>
                         <div class="ed-proj-content">
                             <h3 class="display-medium" data-i18n="p2_title">Prompt Library SaaS Platform</h3>
@@ -180,7 +182,7 @@
                     </article>
 
                     <!-- Project 3 -->
-                    <article class="ed-project-row reveal" style="--delay: 0.3s">
+                    <article class="ed-project-row reveal" style="--delay: 0.3s" data-proj-id="3" tabindex="0" role="button" aria-label="View project details">
                         <div class="ed-proj-num mono-text">03 //</div>
                         <div class="ed-proj-content">
                             <h3 class="display-medium" data-i18n="p3_title">Plastic Surgery Booking System</h3>
@@ -193,7 +195,7 @@
                     </article>
 
                     <!-- Project 4 -->
-                    <article class="ed-project-row reveal" style="--delay: 0.4s">
+                    <article class="ed-project-row reveal" style="--delay: 0.4s" data-proj-id="4" tabindex="0" role="button" aria-label="View project details">
                         <div class="ed-proj-num mono-text">04 //</div>
                         <div class="ed-proj-content">
                             <h3 class="display-medium" data-i18n="p4_title">Qiyafe Retail Platform</h3>
@@ -206,7 +208,7 @@
                     </article>
 
                     <!-- Project 5 -->
-                    <article class="ed-project-row reveal" style="--delay: 0.5s">
+                    <article class="ed-project-row reveal" style="--delay: 0.5s" data-proj-id="5" tabindex="0" role="button" aria-label="View project details">
                         <div class="ed-proj-num mono-text">05 //</div>
                         <div class="ed-proj-content">
                             <h3 class="display-medium" data-i18n="p5_title">School Data Tracker System</h3>
@@ -302,12 +304,12 @@
                     
                     <div class="ed-contact-links">
                         <a href="mailto:abdalla12455@gmail.com" class="ed-huge-link">
-                            <span class="mono-text text-red" data-i18n="contact_email_title">Send an Email</span>
+                            <span class="mono-text text-red" data-i18n="contact_email_title"><i class="ph-bold ph-envelope-simple"></i> Send an Email</span>
                             <span class="display-medium email-text" dir="ltr">abdalla12455@gmail.com</span>
                         </a>
                         
                         <a href="https://wa.me/9647702755683" target="_blank" rel="noopener noreferrer" class="ed-huge-link">
-                            <span class="mono-text text-red" data-i18n="contact_wa_title">Message on WhatsApp</span>
+                            <span class="mono-text text-red" data-i18n="contact_wa_title"><i class="ph-bold ph-whatsapp-logo wa-icon-pulse"></i> Message on WhatsApp</span>
                             <span class="display-medium wa-text" dir="ltr">+964 770 275 5683</span>
                         </a>
                     </div>
@@ -328,6 +330,31 @@
             </div>
         </div>
     </footer>
+
+    <!-- ===================== PROJECT MODAL ===================== -->
+    <div id="project-modal" class="project-modal" aria-hidden="true" role="dialog">
+        <div class="project-modal-content">
+            <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-header">
+                <h3 id="modal-title" class="display-medium">Project Title</h3>
+                <div id="modal-tags" class="mono-text text-red mb-4"></div>
+            </div>
+            <div class="modal-body">
+                <div class="psr-item">
+                    <span class="mono-eyebrow" data-i18n="psr_problem">Problem</span>
+                    <p id="modal-prob"></p>
+                </div>
+                <div class="psr-item">
+                    <span class="mono-eyebrow" data-i18n="psr_solution">Solution</span>
+                    <p id="modal-sol"></p>
+                </div>
+                <div class="psr-item">
+                    <span class="mono-eyebrow" data-i18n="psr_result">Result</span>
+                    <p id="modal-res"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
