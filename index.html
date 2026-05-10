@@ -13,36 +13,40 @@
     <meta property="og:description" content="I build AI-powered systems that scale — not just demos.">
     <meta property="og:type" content="website">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Editorial / Luxury Aesthetic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500&family=JetBrains+Mono:wght@100..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="editorial-theme">
 
-    <!-- Background ambiance -->
-    <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
-    <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+    <!-- Noise Texture Overlay -->
+    <div class="noise-overlay" aria-hidden="true"></div>
 
     <!-- ===================== NAVBAR ===================== -->
     <header class="navbar" role="banner">
         <div class="nav-inner">
-            <a href="#" class="nav-logo" aria-label="Abdullah Raad - Home" data-i18n-aria="aria_nav_logo"><span data-i18n="nav_logo_text">AR</span><span>.</span></a>
+            <a href="#" class="nav-logo" aria-label="Abdullah Raad - Home" data-i18n-aria="aria_nav_logo">
+                <span data-i18n="nav_logo_text">AR</span><span class="logo-dot">.</span>
+            </a>
+            
             <nav class="nav-links" role="navigation" aria-label="Main navigation">
                 <a href="#about" data-i18n="nav_about">About</a>
                 <a href="#projects" data-i18n="nav_work">Work</a>
                 <a href="#skills" data-i18n="nav_skills">Skills</a>
-                <a href="#contact" class="nav-cta" data-i18n="nav_contact">Let's Talk</a>
+                <a href="#contact" data-i18n="nav_contact" class="nav-cta">Let's Talk</a>
             </nav>
+
             <div id="lang-switcher" class="lang-switcher" role="group" aria-label="Language switcher">
                 <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
                 <button class="lang-btn" data-lang="ar" aria-label="Switch to Arabic">AR</button>
             </div>
+            
             <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
@@ -50,85 +54,64 @@
     </header>
 
     <main>
-
         <!-- ===================== HERO ===================== -->
         <section id="hero" class="hero" aria-labelledby="hero-title">
-            <div class="container hero-container">
-                <div class="hero-availability">
-                    <span class="dot dot-green" aria-hidden="true"></span>
-                    <span data-i18n="hero_avail">Open to remote opportunities</span>
+            <div class="hero-grid">
+                <div class="hero-top reveal" style="--delay: 0.1s">
+                    <div class="hero-availability">
+                        <span class="dot dot-red" aria-hidden="true"></span>
+                        <span data-i18n="hero_avail" class="mono-text">Open to remote opportunities</span>
+                    </div>
                 </div>
 
-                <h1 id="hero-title" class="hero-name" data-i18n="hero_name">Abdullah Raad</h1>
+                <div class="hero-center reveal" style="--delay: 0.3s">
+                    <h1 id="hero-title" class="display-huge" data-i18n="hero_name">Abdullah Raad</h1>
+                    <h2 class="display-sub" data-i18n="hero_tagline">
+                        I build <em class="highlight-red">AI-powered systems</em> that scale —<br>not just demos.
+                    </h2>
+                </div>
 
-                <p class="hero-roles">
-                    <span class="role-tag">Full Stack Developer</span>
-                    <span class="role-sep" aria-hidden="true">·</span>
-                    <span class="role-tag">AI Systems Architect</span>
-                    <span class="role-sep" aria-hidden="true">·</span>
-                    <span class="role-tag">English Trainer</span>
-                </p>
-
-                <h2 class="hero-tagline" data-i18n="hero_tagline">
-                    I build <span class="highlight">AI-powered systems</span> that scale —<br>
-                    not just demos.
-                </h2>
-
-                <p class="hero-positioning" data-i18n="hero_positioning">
-                    I build systems that understand language — not just process data.
-                </p>
-
-                <div class="hero-ctas">
-                    <a href="#projects" class="btn btn-primary" id="hero-view-projects">
-                        <i class="ph-bold ph-rocket-launch" aria-hidden="true"></i>
-                        <span data-i18n="hero_cta_projects">View Projects</span>
-                    </a>
-                    <a href="https://wa.me/9647702755683?text=Hello%20Abdullah,%20I%20saw%20your%20projects%20and%20I%E2%80%99m%20interested%20in%20working%20with%20you%20on%20something%20similar."
-                       target="_blank" rel="noopener noreferrer"
-                       class="btn btn-whatsapp" id="hero-whatsapp">
-                        <i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i>
-                        <span data-i18n="hero_cta_wa">WhatsApp Me</span>
-                    </a>
-                    <a href="mailto:abdalla12455@gmail.com?subject=Project%20Inquiry&body=Hello%20Abdullah,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20with%20you."
-                       class="btn btn-ghost" id="hero-email">
-                        <i class="ph-bold ph-envelope-simple" aria-hidden="true"></i>
-                        <span data-i18n="hero_cta_email">Email Me</span>
-                    </a>
+                <div class="hero-bottom reveal" style="--delay: 0.5s">
+                    <p class="hero-roles mono-text">
+                        [ <span data-i18n="nav_work">Work</span> // AI Systems Architect · Full Stack Developer · English Trainer ]
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#projects" class="ed-link mono-text">
+                            <span data-i18n="hero_cta_projects">View Projects</span>
+                            <i class="ph ph-arrow-down-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- ===================== ABOUT ===================== -->
         <section id="about" class="section about" aria-labelledby="about-title">
-            <div class="container">
-                <p class="eyebrow" data-i18n="about_eyebrow">Background</p>
-                <h2 id="about-title" class="section-heading" data-i18n="about_heading">The Engineering Edge</h2>
-                <div class="about-grid">
-                    <div class="about-text reveal">
-                        <p data-i18n="about_p1">I don't write code — I architect intelligence. My discipline fuses advanced software engineering with linguistics, producing systems that don't just store and retrieve data, but understand context, intent, and human nuance.</p>
-                        <p data-i18n="about_p2">By embedding elite AI tools (Cursor, AntiGravity, LLM pipelines) directly into my development process, I consistently compress project timelines by <strong>60–80%</strong> — without cutting corners on architecture, security, or performance.</p>
-                        <p data-i18n="about_p3">The result: production-grade systems delivered at startup speed, built to withstand real-world concurrency, scale, and adversarial conditions.</p>
+            <div class="ed-container">
+                <div class="ed-grid">
+                    <div class="ed-col-left reveal">
+                        <p class="mono-eyebrow" data-i18n="about_eyebrow">Background</p>
+                        <h2 id="about-title" class="section-title display-large" data-i18n="about_heading">The Engineering Edge</h2>
                     </div>
-                    <div class="about-metrics">
-                        <div class="metric-card reveal" style="--delay: 0s">
-                            <div class="metric-icon"><i class="ph-bold ph-trend-up"></i></div>
-                            <div class="metric-value">60–80%</div>
-                            <div class="metric-label" data-i18n="metric_delivery">Faster Delivery</div>
+                    <div class="ed-col-right reveal" style="--delay: 0.2s">
+                        <div class="ed-text-block">
+                            <p data-i18n="about_p1" class="lead-text">I don't write code — I architect intelligence. My discipline fuses advanced software engineering with linguistics, producing systems that don't just store and retrieve data, but understand context, intent, and human nuance.</p>
+                            <p data-i18n="about_p2">By embedding elite AI tools (Cursor, AntiGravity, LLM pipelines) directly into my development process, I consistently compress project timelines by <strong>60–80%</strong> — without cutting corners on architecture, security, or performance.</p>
                         </div>
-                        <div class="metric-card reveal" style="--delay: 0.1s">
-                            <div class="metric-icon"><i class="ph-bold ph-cpu"></i></div>
-                            <div class="metric-value">5+</div>
-                            <div class="metric-label" data-i18n="metric_systems">Production Systems</div>
-                        </div>
-                        <div class="metric-card reveal" style="--delay: 0.2s">
-                            <div class="metric-icon"><i class="ph-bold ph-translate"></i></div>
-                            <div class="metric-value">3</div>
-                            <div class="metric-label" data-i18n="metric_langs">Languages Spoken</div>
-                        </div>
-                        <div class="metric-card reveal" style="--delay: 0.3s">
-                            <div class="metric-icon"><i class="ph-bold ph-shield-check"></i></div>
-                            <div class="metric-value">Zero</div>
-                            <div class="metric-label" data-i18n="metric_race">Race Conditions</div>
+                        
+                        <div class="metrics-editorial">
+                            <div class="ed-metric">
+                                <span class="ed-metric-val">60-80%</span>
+                                <span class="ed-metric-label mono-text" data-i18n="metric_delivery">Faster Delivery</span>
+                            </div>
+                            <div class="ed-metric">
+                                <span class="ed-metric-val">Zero</span>
+                                <span class="ed-metric-label mono-text" data-i18n="metric_race">Race Conditions</span>
+                            </div>
+                            <div class="ed-metric">
+                                <span class="ed-metric-val">5+</span>
+                                <span class="ed-metric-label mono-text" data-i18n="metric_systems">Production Systems</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -136,272 +119,174 @@
         </section>
 
         <!-- ===================== WHAT MAKES ME DIFFERENT ===================== -->
-        <section class="section differentials section-alt" aria-labelledby="diff-title">
-            <div class="container">
-                <p class="eyebrow" data-i18n="diff_eyebrow">Differentiators</p>
-                <h2 id="diff-title" class="section-heading" data-i18n="diff_heading">What Makes Me Different</h2>
-                <div class="diff-grid">
-                    <div class="diff-card reveal" style="--delay: 0s">
-                        <div class="diff-icon-wrap"><i class="ph-duotone ph-translate"></i></div>
-                        <h3 data-i18n="diff1_title">Language-Aware Engineering</h3>
-                        <p data-i18n="diff1_body">As an English Trainer with a linguistics background, I architect NLP systems that parse cultural context, dialect nuance, and human intent — not just tokens and embeddings.</p>
+        <section class="section differentials" aria-labelledby="diff-title">
+            <div class="ed-container">
+                <div class="ed-grid">
+                    <div class="ed-col-left reveal">
+                        <p class="mono-eyebrow" data-i18n="diff_eyebrow">Differentiators</p>
+                        <h2 id="diff-title" class="section-title display-large" data-i18n="diff_heading">What Makes Me Different</h2>
                     </div>
-                    <div class="diff-card reveal" style="--delay: 0.1s">
-                        <div class="diff-icon-wrap"><i class="ph-duotone ph-lightning"></i></div>
-                        <h3 data-i18n="diff2_title">AI-Accelerated Delivery</h3>
-                        <p data-i18n="diff2_body">I orchestrate advanced AI development environments — Cursor, AntiGravity, GitHub Copilot — to compress delivery timelines to a fraction of standard cycles. Same quality. Less time.</p>
-                    </div>
-                    <div class="diff-card reveal" style="--delay: 0.2s">
-                        <div class="diff-icon-wrap"><i class="ph-duotone ph-factory"></i></div>
-                        <h3 data-i18n="diff3_title">Production Over Prototypes</h3>
-                        <p data-i18n="diff3_body">I build for real-world conditions: high-concurrency scenarios, pessimistic locking, atomic transactions, rate limiting. Systems that survive load, not just demos that survive a pitch.</p>
+                    <div class="ed-col-right ed-list-view">
+                        <div class="ed-list-item reveal" style="--delay: 0.1s">
+                            <h3 class="display-medium" data-i18n="diff1_title">Language-Aware Engineering</h3>
+                            <p data-i18n="diff1_body">As an English Trainer with a linguistics background, I architect NLP systems that parse cultural context, dialect nuance, and human intent — not just tokens and embeddings.</p>
+                        </div>
+                        <div class="ed-list-item reveal" style="--delay: 0.2s">
+                            <h3 class="display-medium" data-i18n="diff2_title">AI-Accelerated Delivery</h3>
+                            <p data-i18n="diff2_body">I orchestrate advanced AI development environments — Cursor, AntiGravity, GitHub Copilot — to compress delivery timelines to a fraction of standard cycles. Same quality. Less time.</p>
+                        </div>
+                        <div class="ed-list-item reveal" style="--delay: 0.3s">
+                            <h3 class="display-medium" data-i18n="diff3_title">Production Over Prototypes</h3>
+                            <p data-i18n="diff3_body">I build for real-world conditions: high-concurrency scenarios, pessimistic locking, atomic transactions, rate limiting. Systems that survive load, not just demos that survive a pitch.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===================== PROJECTS ===================== -->
+        <!-- ===================== PROJECTS (EDITORIAL LIST) ===================== -->
         <section id="projects" class="section projects" aria-labelledby="projects-title">
-            <div class="container">
-                <p class="eyebrow" data-i18n="proj_eyebrow">Production Systems</p>
-                <h2 id="projects-title" class="section-heading" data-i18n="proj_heading">Featured Work</h2>
-                <p class="section-sub" data-i18n="proj_sub">Real challenges. Intelligent architecture. Measurable outcomes.</p>
+            <div class="ed-container">
+                <div class="ed-header-row reveal">
+                    <p class="mono-eyebrow" data-i18n="proj_eyebrow">Production Systems</p>
+                    <h2 id="projects-title" class="section-title display-large" data-i18n="proj_heading">Featured Work</h2>
+                </div>
 
-                <div class="projects-grid">
-
+                <div class="ed-projects-wrapper">
                     <!-- Project 1 -->
-                    <article class="project-card reveal" style="--delay: 0s" aria-label="Iraqi Dialect AI Chat project">
-                        <div class="project-img">
-                            <img src="assets/iraqi_chat.png" alt="Iraqi Dialect AI Chat interface mockup" loading="lazy" data-i18n-alt="alt_iraqi_chat">
-                            <div class="project-img-overlay" aria-hidden="true"></div>
+                    <article class="ed-project-row reveal" style="--delay: 0.1s">
+                        <div class="ed-proj-num mono-text">01 //</div>
+                        <div class="ed-proj-content">
+                            <h3 class="display-medium" data-i18n="p1_title">Iraqi Dialect AI Chat</h3>
+                            <p class="ed-proj-desc" data-i18n="p1_res">Near-native dialect comprehension and culturally resonant responses — eliminating the language gap for Iraqi end users.</p>
+                            <div class="ed-proj-tags mono-text">NLP · Arabic AI · LLM · Python</div>
                         </div>
-                        <div class="project-body">
-                            <h3 class="project-title" data-i18n="p1_title">Iraqi Dialect AI Chat</h3>
-                            <div class="project-tags" aria-label="Technologies used">
-                                <span>NLP</span><span>Arabic AI</span><span>LLM</span><span>Python</span>
-                            </div>
-                            <div class="project-psr">
-                                <div class="psr-item">
-                                    <span class="psr-label" data-i18n="psr_problem">Problem</span>
-                                    <p data-i18n="p1_prob">Standard LLMs fail to comprehend Iraqi Arabic dialect — producing irrelevant, low-confidence outputs that erode user trust.</p>
-                                </div>
-                                <div class="psr-item">
-                                    <span class="psr-label" data-i18n="psr_solution">Solution</span>
-                                    <p data-i18n="p1_sol">Engineered a localized NLP pipeline strictly fine-tuned on Iraqi dialect syntax, idioms, and phonetic patterns.</p>
-                                </div>
-                                <div class="psr-item psr-result">
-                                    <span class="psr-label accent-label" data-i18n="psr_result">Result</span>
-                                    <p data-i18n="p1_res">Near-native dialect comprehension and culturally resonant responses — eliminating the language gap for Iraqi end users.</p>
-                                </div>
-                            </div>
+                        <div class="ed-proj-img">
+                            <img src="assets/iraqi_chat.png" alt="Iraqi Dialect AI Chat" loading="lazy">
                         </div>
                     </article>
 
                     <!-- Project 2 -->
-                    <article class="project-card reveal" style="--delay: 0.1s" aria-label="Prompt Library SaaS Platform project">
-                        <div class="project-img">
-                            <img src="assets/prompt_saas.png" alt="Prompt Library SaaS dashboard mockup" loading="lazy" data-i18n-alt="alt_prompt_saas">
-                            <div class="project-img-overlay" aria-hidden="true"></div>
+                    <article class="ed-project-row reveal" style="--delay: 0.2s">
+                        <div class="ed-proj-num mono-text">02 //</div>
+                        <div class="ed-proj-content">
+                            <h3 class="display-medium" data-i18n="p2_title">Prompt Library SaaS Platform</h3>
+                            <p class="ed-proj-desc" data-i18n="p2_res">Standardized AI workflows across teams — reducing prompt redundancy and measurably improving LLM output quality.</p>
+                            <div class="ed-proj-tags mono-text">React · Node.js · PostgreSQL</div>
                         </div>
-                        <div class="project-body">
-                            <h3 class="project-title" data-i18n="p2_title">Prompt Library SaaS Platform</h3>
-                            <div class="project-tags" aria-label="Technologies used">
-                                <span>React</span><span>Node.js</span><span>PostgreSQL</span><span>LLM APIs</span>
-                            </div>
-                            <div class="project-psr">
-                                <div class="psr-item">
-                                    <span class="psr-label" data-i18n="psr_problem">Problem</span>
-                                    <p data-i18n="p2_prob">Engineering teams lack centralized, versioned storage for AI prompts — resulting in duplicated effort and inconsistent outputs.</p>
-                                </div>
-                                <div class="psr-item">
-                                    <span class="psr-label" data-i18n="psr_solution">Solution</span>
-                                    <p data-i18n="p2_sol">Built a multi-tenant SaaS platform with real-time workspaces, strict prompt versioning, and API integration layers.</p>
-                                </div>
-                                <div class="psr-item psr-result">
-                                    <span class="psr-label accent-label" data-i18n="psr_result">Result</span>
-                                    <p data-i18n="p2_res">Standardized AI workflows across teams — reducing prompt redundancy and measurably improving LLM output quality.</p>
-                                </div>
-                            </div>
+                        <div class="ed-proj-img">
+                            <img src="assets/prompt_saas.png" alt="Prompt SaaS" loading="lazy">
                         </div>
                     </article>
 
                     <!-- Project 3 -->
-                    <article class="project-card reveal" style="--delay: 0s" aria-label="Plastic Surgery Booking System project">
-                        <div class="project-img">
-                            <img src="assets/booking_system.png" alt="Clinic booking system dashboard mockup" loading="lazy" data-i18n-alt="alt_booking_system">
-                            <div class="project-img-overlay" aria-hidden="true"></div>
+                    <article class="ed-project-row reveal" style="--delay: 0.3s">
+                        <div class="ed-proj-num mono-text">03 //</div>
+                        <div class="ed-proj-content">
+                            <h3 class="display-medium" data-i18n="p3_title">Plastic Surgery Booking System</h3>
+                            <p class="ed-proj-desc" data-i18n="p3_res">Zero double-bookings post-launch. System sustained peak loads without degradation or data inconsistency.</p>
+                            <div class="ed-proj-tags mono-text">Laravel · MySQL · Queues</div>
                         </div>
-                        <div class="project-body">
-                            <h3 class="project-title" data-i18n="p3_title">Plastic Surgery Booking System</h3>
-                            <div class="project-tags" aria-label="Technologies used">
-                                <span>Laravel</span><span>MySQL</span><span>Pessimistic Locking</span><span>Queues</span>
-                            </div>
-                            <div class="project-psr">
-                                <div class="psr-item">
-                                    <span class="psr-label" data-i18n="psr_problem">Problem</span>
-                                    <p data-i18n="p3_prob">Traffic spikes during booking releases caused race conditions — double-booking doctors' schedules under concurrent load.</p>
-                                </div>
-                                <div class="psr-item">
-                                    <span class="psr-label" data-i18n="psr_solution">Solution</span>
-                                    <p data-i18n="p3_sol">Rebuilt transaction layer with pessimistic DB locking, atomic queue processing, and strict rate limiting on booking endpoints.</p>
-                                </div>
-                                <div class="psr-item psr-result">
-                                    <span class="psr-label accent-label" data-i18n="psr_result">Result</span>
-                                    <p data-i18n="p3_res">Zero double-bookings post-launch. System sustained peak loads without degradation or data inconsistency.</p>
-                                </div>
-                            </div>
+                        <div class="ed-proj-img">
+                            <img src="assets/booking_system.png" alt="Booking System" loading="lazy">
                         </div>
                     </article>
 
                     <!-- Project 4 -->
-                    <article class="project-card reveal" style="--delay: 0.1s" aria-label="Qiyafe Retail Platform project">
-                        <div class="project-img">
-                            <img src="assets/retail_platform.png" alt="Qiyafe retail e-commerce dashboard mockup" loading="lazy" data-i18n-alt="alt_retail_platform">
-                            <div class="project-img-overlay" aria-hidden="true"></div>
+                    <article class="ed-project-row reveal" style="--delay: 0.4s">
+                        <div class="ed-proj-num mono-text">04 //</div>
+                        <div class="ed-proj-content">
+                            <h3 class="display-medium" data-i18n="p4_title">Qiyafe Retail Platform</h3>
+                            <p class="ed-proj-desc" data-i18n="p4_res">Full availability during peak traffic. Accelerated customer conversion funnel and reduced infrastructure cost.</p>
+                            <div class="ed-proj-tags mono-text">E-commerce · Microservices</div>
                         </div>
-                        <div class="project-body">
-                            <h3 class="project-title" data-i18n="p4_title">Qiyafe Retail Platform</h3>
-                            <div class="project-tags" aria-label="Technologies used">
-                                <span>E-commerce</span><span>REST APIs</span><span>Microservices</span><span>Laravel</span>
-                            </div>
-                            <div class="project-psr">
-                                <div class="psr-item">
-                                    <span class="psr-label" data-i18n="psr_problem">Problem</span>
-                                    <p data-i18n="p4_prob">Legacy monolithic architecture couldn't scale during seasonal traffic spikes — causing failures and lost conversions.</p>
-                                </div>
-                                <div class="psr-item">
-                                    <span class="psr-label" data-i18n="psr_solution">Solution</span>
-                                    <p data-i18n="p4_sol">Migrated to decoupled microservices architecture with a high-performance frontend and dedicated API gateway.</p>
-                                </div>
-                                <div class="psr-item psr-result">
-                                    <span class="psr-label accent-label" data-i18n="psr_result">Result</span>
-                                    <p data-i18n="p4_res">Full availability during peak traffic. Accelerated customer conversion funnel and reduced infrastructure cost.</p>
-                                </div>
-                            </div>
+                        <div class="ed-proj-img">
+                            <img src="assets/retail_platform.png" alt="Retail Platform" loading="lazy">
                         </div>
                     </article>
 
                     <!-- Project 5 -->
-                    <article class="project-card project-card-wide reveal" style="--delay: 0s" aria-label="School Tracker System project">
-                        <div class="project-img">
-                            <img src="assets/school_tracker.png" alt="School performance analytics dashboard mockup" loading="lazy" data-i18n-alt="alt_school_tracker">
-                            <div class="project-img-overlay" aria-hidden="true"></div>
+                    <article class="ed-project-row reveal" style="--delay: 0.5s">
+                        <div class="ed-proj-num mono-text">05 //</div>
+                        <div class="ed-proj-content">
+                            <h3 class="display-medium" data-i18n="p5_title">School Data Tracker System</h3>
+                            <p class="ed-proj-desc" data-i18n="p5_res">Enabled data-driven administrative decisions — early intervention for at-risk students and streamlined institutional reporting.</p>
+                            <div class="ed-proj-tags mono-text">Analytics · Real-time</div>
                         </div>
-                        <div class="project-body">
-                            <h3 class="project-title" data-i18n="p5_title">School Data Tracker System</h3>
-                            <div class="project-tags" aria-label="Technologies used">
-                                <span>Full Stack</span><span>Data Visualization</span><span>Analytics</span><span>Real-time</span>
-                            </div>
-                            <div class="project-psr">
-                                <div class="psr-item">
-                                    <span class="psr-label" data-i18n="psr_problem">Problem</span>
-                                    <p data-i18n="p5_prob">Educational administrators operated on fragmented data — no unified view of student attrition, GPA trends, or faculty load.</p>
-                                </div>
-                                <div class="psr-item">
-                                    <span class="psr-label" data-i18n="psr_solution">Solution</span>
-                                    <p data-i18n="p5_sol">Deployed a centralized analytics dashboard combining fragmented data sources into real-time, interactive visual reports.</p>
-                                </div>
-                                <div class="psr-item psr-result">
-                                    <span class="psr-label accent-label" data-i18n="psr_result">Result</span>
-                                    <p data-i18n="p5_res">Enabled data-driven administrative decisions — early intervention for at-risk students and streamlined institutional reporting.</p>
-                                </div>
-                            </div>
+                        <div class="ed-proj-img">
+                            <img src="assets/school_tracker.png" alt="School Tracker" loading="lazy">
                         </div>
                     </article>
-
                 </div>
             </div>
         </section>
 
-        <!-- ===================== SKILLS ===================== -->
-        <section id="skills" class="section skills section-alt" aria-labelledby="skills-title">
-            <div class="container">
-                <p class="eyebrow" data-i18n="skills_eyebrow">Capabilities</p>
-                <h2 id="skills-title" class="section-heading" data-i18n="skills_heading">Technical Stack</h2>
-                <div class="skills-grid">
-                    <div class="skill-card reveal" style="--delay: 0s">
-                        <div class="skill-card-header">
-                            <i class="ph-duotone ph-brain"></i>
-                            <h3 data-i18n="skill1_title">AI &amp; NLP</h3>
-                        </div>
-                        <ul data-skill-list="1">
-                            <li>Prompt Engineering</li>
-                            <li>Natural Language Processing</li>
-                            <li>LLM Workflows &amp; Orchestration</li>
-                            <li>Fine-tuning &amp; Evaluation</li>
-                        </ul>
+        <!-- ===================== SKILLS & LANGUAGES ===================== -->
+        <section id="skills" class="section skills-lang-combo" aria-labelledby="skills-title">
+            <div class="ed-container">
+                <div class="ed-grid">
+                    <div class="ed-col-left reveal">
+                        <p class="mono-eyebrow" data-i18n="skills_eyebrow">Capabilities</p>
+                        <h2 id="skills-title" class="section-title display-large" data-i18n="skills_heading">Technical Stack</h2>
                     </div>
-                    <div class="skill-card reveal" style="--delay: 0.1s">
-                        <div class="skill-card-header">
-                            <i class="ph-duotone ph-database"></i>
-                            <h3 data-i18n="skill2_title">Backend</h3>
+                    
+                    <div class="ed-col-right ed-skills-grid">
+                        <div class="ed-skill-block reveal" style="--delay: 0.1s">
+                            <h3 class="mono-eyebrow text-red" data-i18n="skill1_title">AI & NLP</h3>
+                            <ul class="ed-skill-list mono-text" data-skill-list="1">
+                                <li>Prompt Engineering</li>
+                                <li>Natural Language Processing</li>
+                                <li>LLM Workflows & Orchestration</li>
+                                <li>Fine-tuning & Evaluation</li>
+                            </ul>
                         </div>
-                        <ul data-skill-list="2">
-                            <li>Laravel Ecosystem</li>
-                            <li>REST APIs Architecture</li>
-                            <li>DB Transactions &amp; Locking</li>
-                            <li>Rate Limiting &amp; Security</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card reveal" style="--delay: 0.2s">
-                        <div class="skill-card-header">
-                            <i class="ph-duotone ph-monitor"></i>
-                            <h3 data-i18n="skill3_title">Frontend</h3>
+                        <div class="ed-skill-block reveal" style="--delay: 0.2s">
+                            <h3 class="mono-eyebrow text-red" data-i18n="skill2_title">Backend</h3>
+                            <ul class="ed-skill-list mono-text" data-skill-list="2">
+                                <li>Laravel Ecosystem</li>
+                                <li>REST APIs Architecture</li>
+                                <li>DB Transactions & Locking</li>
+                                <li>Rate Limiting & Security</li>
+                            </ul>
                         </div>
-                        <ul data-skill-list="3">
-                            <li>UI/UX Design Systems</li>
-                            <li>Responsive &amp; Mobile-First</li>
-                            <li>Modern JS Frameworks</li>
-                            <li>Performance Optimization</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card reveal" style="--delay: 0.3s">
-                        <div class="skill-card-header">
-                            <i class="ph-duotone ph-wrench"></i>
-                            <h3 data-i18n="skill4_title">Tools &amp; DBs</h3>
+                        <div class="ed-skill-block reveal" style="--delay: 0.3s">
+                            <h3 class="mono-eyebrow text-red" data-i18n="skill3_title">Frontend</h3>
+                            <ul class="ed-skill-list mono-text" data-skill-list="3">
+                                <li>UI/UX Design Systems</li>
+                                <li>Responsive & Mobile-First</li>
+                                <li>Modern JS Frameworks</li>
+                                <li>Performance Optimization</li>
+                            </ul>
                         </div>
-                        <ul data-skill-list="4">
-                            <li>Cursor · Lovable · Replit</li>
-                            <li>AntiGravity · Git</li>
-                            <li>MySQL · PostgreSQL</li>
-                            <li>Docker · CI/CD</li>
-                        </ul>
+                        <div class="ed-skill-block reveal" style="--delay: 0.4s">
+                            <h3 class="mono-eyebrow text-red" data-i18n="skill4_title">Tools & DBs</h3>
+                            <ul class="ed-skill-list mono-text" data-skill-list="4">
+                                <li>Cursor · Lovable · Replit</li>
+                                <li>AntiGravity · Git</li>
+                                <li>MySQL · PostgreSQL</li>
+                                <li>Docker · CI/CD</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- ===================== LANGUAGES ===================== -->
-        <section class="section lang-section" aria-labelledby="lang-title">
-            <div class="container">
-                <p class="eyebrow" data-i18n="lang_eyebrow">Multilingual</p>
-                <h2 id="lang-title" class="section-heading" data-i18n="lang_heading">Languages</h2>
-                <div class="lang-grid">
-                    <div class="lang-item reveal" style="--delay: 0s">
-                        <div class="lang-meta">
-                            <span class="lang-name" data-i18n="lang_arabic">Arabic</span>
-                            <span class="lang-pct" data-i18n="lang_arabic_level">Native · 100%</span>
-                        </div>
-                        <div class="lang-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                            <div class="lang-fill" style="--pct: 100%"></div>
-                        </div>
+                <div class="ed-grid mt-24">
+                    <div class="ed-col-left reveal">
+                        <p class="mono-eyebrow" data-i18n="lang_eyebrow">Multilingual</p>
+                        <h2 class="section-title display-large" data-i18n="lang_heading">Languages</h2>
                     </div>
-                    <div class="lang-item reveal" style="--delay: 0.1s">
-                        <div class="lang-meta">
-                            <span class="lang-name" data-i18n="lang_iraqi">Iraqi Dialect</span>
-                            <span class="lang-pct" data-i18n="lang_iraqi_level">Native · 95%</span>
+                    <div class="ed-col-right ed-lang-list">
+                        <div class="ed-lang-item reveal" style="--delay: 0.1s">
+                            <span class="display-medium" data-i18n="lang_arabic">Arabic</span>
+                            <span class="mono-text text-red" data-i18n="lang_arabic_level">Native · 100%</span>
                         </div>
-                        <div class="lang-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
-                            <div class="lang-fill" style="--pct: 95%"></div>
+                        <div class="ed-lang-item reveal" style="--delay: 0.2s">
+                            <span class="display-medium" data-i18n="lang_iraqi">Iraqi Dialect</span>
+                            <span class="mono-text text-red" data-i18n="lang_iraqi_level">Native · 95%</span>
                         </div>
-                    </div>
-                    <div class="lang-item reveal" style="--delay: 0.2s">
-                        <div class="lang-meta">
-                            <span class="lang-name" data-i18n="lang_english">English</span>
-                            <span class="lang-pct" data-i18n="lang_english_level">Professional · 90%</span>
-                        </div>
-                        <div class="lang-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                            <div class="lang-fill" style="--pct: 90%"></div>
+                        <div class="ed-lang-item reveal" style="--delay: 0.3s">
+                            <span class="display-medium" data-i18n="lang_english">English</span>
+                            <span class="mono-text text-red" data-i18n="lang_english_level">Professional · 90%</span>
                         </div>
                     </div>
                 </div>
@@ -409,90 +294,37 @@
         </section>
 
         <!-- ===================== CONTACT ===================== -->
-        <section id="contact" class="section contact section-alt" aria-labelledby="contact-title">
-            <div class="container">
-                <p class="eyebrow" data-i18n="contact_eyebrow">Get In Touch</p>
-                <h2 id="contact-title" class="section-heading" data-i18n="contact_heading">Let's Build Something.</h2>
-                <p class="contact-intro" data-i18n="contact_intro">
-                    I work with serious teams to build scalable, AI-integrated systems.<br>
-                    Choose how you'd like to reach out — I respond fast.
-                </p>
-
-                <div class="contact-cards">
-                    <!-- Email -->
-                    <div class="contact-card contact-card-email reveal" style="--delay: 0.1s">
-                        <div class="contact-card-icon email-icon">
-                            <i class="ph-bold ph-envelope-simple"></i>
-                        </div>
-                        <h3 data-i18n="contact_email_title">Send an Email</h3>
-                        <p class="contact-card-address" dir="ltr">abdalla12455@gmail.com</p>
-                        <p class="contact-card-note" data-i18n="contact_email_note">Best for detailed project discussions</p>
-                        <a href="mailto:abdalla12455@gmail.com?subject=Project%20Inquiry&body=Hello%20Abdullah,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20with%20you."
-                           class="btn btn-email-large" id="contact-email-btn">
-                            <i class="ph-bold ph-envelope-simple"></i>
-                            <span data-i18n="contact_email_btn">Open Email Client</span>
+        <section id="contact" class="section contact" aria-labelledby="contact-title">
+            <div class="ed-container">
+                <div class="ed-contact-block reveal">
+                    <p class="mono-eyebrow text-red" data-i18n="contact_eyebrow">Get In Touch</p>
+                    <h2 id="contact-title" class="display-huge" data-i18n="contact_heading">Let's Build Something.</h2>
+                    
+                    <div class="ed-contact-links">
+                        <a href="mailto:abdalla12455@gmail.com" class="ed-huge-link">
+                            <span class="mono-text text-red" data-i18n="contact_email_title">Send an Email</span>
+                            <span class="display-medium email-text" dir="ltr">abdalla12455@gmail.com</span>
                         </a>
-                    </div>
-                    <!-- WhatsApp -->
-                    <div class="contact-card contact-card-whatsapp reveal" style="--delay: 0.2s">
-                        <div class="contact-card-icon whatsapp-icon">
-                            <i class="ph-fill ph-whatsapp-logo"></i>
-                        </div>
-                        <h3 data-i18n="contact_wa_title">Message on WhatsApp</h3>
-                        <p class="contact-card-address" dir="ltr">+964 770 275 5683</p>
-                        <p class="contact-card-note" data-i18n="contact_wa_note">Fastest way to reach me</p>
-                        <a href="https://wa.me/9647702755683?text=Hello%20Abdullah,%20I%20saw%20your%20projects%20and%20I%E2%80%99m%20interested%20in%20working%20with%20you%20on%20something%20similar."
-                           target="_blank" rel="noopener noreferrer"
-                           class="btn btn-whatsapp-large" id="contact-whatsapp-btn">
-                            <i class="ph-fill ph-whatsapp-logo"></i>
-                            <span data-i18n="contact_wa_btn">Chat on WhatsApp</span>
+                        
+                        <a href="https://wa.me/9647702755683" target="_blank" rel="noopener noreferrer" class="ed-huge-link">
+                            <span class="mono-text text-red" data-i18n="contact_wa_title">Message on WhatsApp</span>
+                            <span class="display-medium wa-text" dir="ltr">+964 770 275 5683</span>
                         </a>
                     </div>
                 </div>
-
-                <!-- Info row -->
-                <div class="contact-info-row reveal" style="--delay: 0.3s">
-                    <div class="contact-info-item">
-                        <i class="ph-fill ph-map-pin"></i>
-                        <span data-i18n="contact_location">Baghdad, Iraq</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <span class="dot dot-green" aria-hidden="true"></span>
-                        <span data-i18n="contact_avail">Open to Remote Opportunities</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <i class="ph-fill ph-clock"></i>
-                        <span data-i18n="contact_timezone">GMT+3 · Usually replies within hours</span>
-                    </div>
-                </div>
-
             </div>
         </section>
-
     </main>
 
     <!-- ===================== FOOTER ===================== -->
-    <footer class="footer" role="contentinfo">
-        <div class="container footer-inner">
-            <div class="footer-brand"><span data-i18n="nav_logo_text">AR</span><span>.</span></div>
-            <p class="footer-copy" data-i18n="footer_copy">&copy; 2026 Abdullah Raad — Engineered for Scale.</p>
-            <div class="footer-links">
-                <a href="https://www.linkedin.com/in/abdullah-ra-b312a3404"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Visit Abdullah Raad on LinkedIn"
-                   data-i18n-aria="aria_linkedin"
-                   class="social-icon social-linkedin">
-                    <i class="ph-fill ph-linkedin-logo"></i>
-                </a>
-                <a href="https://wa.me/9647702755683?text=Hello%20Abdullah,%20I%20saw%20your%20portfolio%20and%20I%E2%80%99m%20interested%20in%20working%20with%20you."
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Chat with Abdullah Raad on WhatsApp"
-                   data-i18n-aria="aria_whatsapp"
-                   class="social-icon social-whatsapp">
-                    <i class="ph-fill ph-whatsapp-logo"></i>
-                </a>
+    <footer class="ed-footer" role="contentinfo">
+        <div class="ed-container footer-inner">
+            <div class="footer-left mono-text">
+                <span data-i18n="footer_copy">&copy; 2026 Abdullah Raad — Engineered for Scale.</span>
+            </div>
+            <div class="footer-right">
+                <a href="https://www.linkedin.com/in/abdullah-ra-b312a3404" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="ed-social-link">LN</a>
+                <a href="https://wa.me/9647702755683" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="ed-social-link">WA</a>
             </div>
         </div>
     </footer>
