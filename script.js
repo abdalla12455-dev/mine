@@ -20,7 +20,7 @@
       nav_logo_text:    'AR',
 
       hero_avail:       'Open to remote opportunities',
-      hero_tagline:     'I build <span class="highlight">AI-powered systems</span> that scale —<br>not just demos.',
+      hero_tagline:     'I build <span class="highlight-primary">AI-powered systems</span> that scale —<br>not just demos.',
       hero_positioning: 'I build systems that understand language — not just process data.',
       hero_cta_projects:'View Projects',
       hero_cta_wa:      'WhatsApp Me',
@@ -147,7 +147,7 @@
       nav_logo_text:    'ع.ر',
 
       hero_avail:       'متاح للعمل عن بُعد',
-      hero_tagline:     'أبني <span class="highlight">أنظمة مدعومة بالذكاء الاصطناعي</span> قابلة للتوسع —<br>وليست مجرد نماذج تجريبية.',
+      hero_tagline:     'أبني <span class="highlight-primary">أنظمة مدعومة بالذكاء الاصطناعي</span> قابلة للتوسع —<br>وليست مجرد نماذج تجريبية.',
       hero_positioning: 'أبني أنظمة تفهم اللغة — لا تكتفي بمعالجة البيانات.',
       hero_cta_projects:'استعرض المشاريع',
       hero_cta_wa:      'تواصل عبر واتساب',
