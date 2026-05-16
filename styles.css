@@ -294,9 +294,27 @@ section {
   margin: 0 auto;
 }
 
+.nav-left, .nav-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav-right {
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+.nav-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .nav-logo {
   font-family: var(--font-heading-en);
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--color-text);
   text-decoration: none;
   font-weight: 500;
@@ -309,17 +327,20 @@ section {
 
 .nav-links {
   display: flex;
-  gap: 3rem;
+  gap: 2.5rem;
+  align-items: center;
 }
 .nav-links a {
   color: var(--color-text);
   text-decoration: none;
   font-family: var(--font-body-en);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
+  font-weight: 500;
   position: relative;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 0.4rem 0;
 }
 .nav-links a:hover, .nav-links a.active {
   color: var(--color-primary);
@@ -327,27 +348,22 @@ section {
 .nav-links a.active::after {
   content: '';
   position: absolute;
-  bottom: -4px; left: 0; width: 100%; height: 1px;
+  bottom: 0; left: 0; width: 100%; height: 1px;
   background-color: var(--color-primary);
 }
 
-.nav-cta {
-  padding: 0.8rem 1.5rem;
-  background: var(--color-primary);
-  color: #111724 !important; /* Dark text for contrast on bright mint green */
+/* Specific highlight for Contact if needed, but keeping it balanced */
+.nav-links a[href="#contact"] {
+  padding: 0.4rem 1rem;
+  border: 1px solid transparent;
   border-radius: 4px;
-  font-weight: 600;
-  transition: all 0.3s var(--ease-out-expo) !important;
-  box-shadow: 0 4px 15px rgba(58, 226, 158, 0.2);
 }
-.nav-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(58, 226, 158, 0.4);
-  filter: brightness(1.1);
+.nav-links a[href="#contact"]:hover {
+  border-color: var(--color-border);
+  background: var(--color-surface);
 }
-.nav-cta::after {
-  display: none !important;
-}
+
+
 
 .lang-switcher {
   display: flex;
@@ -844,6 +860,10 @@ section {
     color: var(--color-primary) !important;
   }
   
+  .nav-center {
+    display: contents; /* Let nav-links be positioned fixed relative to viewport */
+  }
+
   .nav-links {
     position: fixed;
     top: 0; left: 0;
@@ -855,6 +875,12 @@ section {
     gap: 3rem;
     transform: translateY(-100%);
     transition: transform 0.6s var(--ease-out-expo);
+    display: flex; /* Ensure flex for mobile */
+    z-index: 105;
+  }
+  .nav-links a[href="#contact"] {
+    border: none;
+    padding: 0;
   }
   .nav-links.open {
     transform: translateY(0);

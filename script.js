@@ -14,7 +14,7 @@
       nav_about:    'About',
       nav_work:     'Work',
       nav_skills:   'Skills',
-      nav_contact:  "Let's Talk",
+      nav_contact:  'Contact',
 
       hero_name:        'Abdullah Raad',
       nav_logo_text:    'AR',

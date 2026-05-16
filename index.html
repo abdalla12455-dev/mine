@@ -33,25 +33,31 @@
     <!-- ===================== NAVBAR ===================== -->
     <header class="navbar" role="banner">
         <div class="nav-inner">
-            <a href="#" class="nav-logo" aria-label="Abdullah Raad - Home" data-i18n-aria="aria_nav_logo">
-                <span data-i18n="nav_logo_text">AR</span><span class="logo-dot">.</span>
-            </a>
-            
-            <nav class="nav-links" role="navigation" aria-label="Main navigation">
-                <a href="#about" data-i18n="nav_about">About</a>
-                <a href="#projects" data-i18n="nav_work">Work</a>
-                <a href="#skills" data-i18n="nav_skills">Skills</a>
-                <a href="#contact" data-i18n="nav_contact" class="nav-cta">Let's Talk</a>
-            </nav>
-
-            <div id="lang-switcher" class="lang-switcher" role="group" aria-label="Language switcher">
-                <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
-                <button class="lang-btn" data-lang="ar" aria-label="Switch to Arabic">AR</button>
+            <div class="nav-left">
+                <a href="#" class="nav-logo" aria-label="Abdullah Raad - Home" data-i18n-aria="aria_nav_logo">
+                    <span data-i18n="nav_logo_text">AR</span><span class="logo-dot">.</span>
+                </a>
             </div>
             
-            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
+            <nav class="nav-center" role="navigation" aria-label="Main navigation">
+                <div class="nav-links">
+                    <a href="#about" data-i18n="nav_about">About</a>
+                    <a href="#projects" data-i18n="nav_work">Work</a>
+                    <a href="#skills" data-i18n="nav_skills">Skills</a>
+                    <a href="#contact" data-i18n="nav_contact">Contact</a>
+                </div>
+            </nav>
+
+            <div class="nav-right">
+                <div id="lang-switcher" class="lang-switcher" role="group" aria-label="Language switcher">
+                    <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
+                    <button class="lang-btn" data-lang="ar" aria-label="Switch to Arabic">AR</button>
+                </div>
+                
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
